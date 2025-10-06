@@ -1,0 +1,53 @@
+ChatGPT: https://chatgpt.com/share/68e30840-7894-800c-93f1-a8eceaa55f20
+
+
+## What you get:
+
+index.html — single-page shell with four views: Home, Modules, Lesson, Progress.
+
+css/styles.css — ultra-light styles, high contrast, print-friendly, dark-mode aware.
+
+js/app.js — no frameworks; loads modules/lessons from JSON, renders quizzes, tracks progress in localStorage (export/import supported). Strings and comments avoid contractions per your preference.
+
+modules/ — JSON content:
+
+index.json (catalog)
+
+english/lessons.json
+
+math/lessons.json
+
+digital_literacy/lessons.json
+
+Key capabilities
+
+Fully offline: open index.html via file:// or serve locally.
+
+Modular content: add folders under /modules/<your-module>/lessons.json and list them in /modules/index.json.
+
+Lightweight UI: no images required; system fonts only; minimal JS.
+
+Accessibility: keyboard navigation, ARIA for quiz radiogroups, high-contrast aware.
+
+Progress: local only (no tracking), export/import as JSON.
+
+Print mode: hides controls; prints lesson content cleanly.
+
+Run options
+
+Double-click index.html (works from a USB stick).
+
+Or, from the folder:
+
+python3 -m http.server 8080
+
+
+Then visit http://localhost:8080.
+
+Extend it fast
+
+Copy the ZIP contents to your device.
+
+Create modules/<new-module>/lessons.json (use the examples).
+
+Add the module entry to modules/index.json with id, title, description, lesson_count.

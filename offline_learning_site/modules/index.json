@@ -1,0 +1,35 @@
+{
+  "modules": [
+    {
+      "id": "english",
+      "title": "English Basics",
+      "description": "Reading, writing, and grammar essentials.",
+      "tags": [
+        "language",
+        "reading",
+        "writing"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "math",
+      "title": "Everyday Math",
+      "description": "Practical arithmetic and problem solving.",
+      "tags": [
+        "numeracy",
+        "arithmetic"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "digital_literacy",
+      "title": "Digital Literacy",
+      "description": "Understanding computers and staying safe.",
+      "tags": [
+        "computers",
+        "safety"
+      ],
+      "lesson_count": 2
+    }
+  ]
+}

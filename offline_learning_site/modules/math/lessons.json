@@ -1,0 +1,52 @@
+{
+  "lessons": [
+    {
+      "id": "arithmetic-1",
+      "title": "Addition and Subtraction",
+      "level": "Intro",
+      "content": [
+        {
+          "type": "p",
+          "text": "Addition puts amounts together. Subtraction finds the difference."
+        },
+        {
+          "type": "code",
+          "code": "7 + 5 = 12\\n12 - 5 = 7"
+        }
+      ],
+      "quiz": {
+        "prompt": "What is 9 + 6?",
+        "choices": [
+          "13",
+          "14",
+          "15"
+        ],
+        "answer": 2
+      }
+    },
+    {
+      "id": "percent-1",
+      "title": "Percents in Daily Life",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "p",
+          "text": "A percent is a fraction out of 100. For example, 25% equals 25 out of 100."
+        },
+        {
+          "type": "p",
+          "text": "To find 10% of a number, move the decimal one place to the left."
+        }
+      ],
+      "quiz": {
+        "prompt": "10% of 80 is:",
+        "choices": [
+          "8",
+          "10",
+          "12"
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}

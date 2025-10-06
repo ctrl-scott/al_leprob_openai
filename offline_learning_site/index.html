@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offline Learning — Modular Site</title>
+  <meta name="description" content="A lightweight, offline-first learning site for low-resource environments." />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <h1>Offline Learning</h1>
+    <p class="tagline">Modular lessons that work without internet access.</p>
+    <nav class="top-nav" aria-label="Primary">
+      <button id="nav-home" class="btn" data-view="home" aria-controls="main">Home</button>
+      <button id="nav-modules" class="btn" data-view="modules" aria-controls="main">Modules</button>
+      <button id="nav-progress" class="btn" data-view="progress" aria-controls="main">Progress</button>
+      <button id="nav-about" class="btn" data-view="about" aria-controls="main">About</button>
+    </nav>
+  </header>
+
+  <main id="main" class="container" tabindex="-1">
+    <section id="view-home" class="view" data-view="home">
+      <h2>Welcome</h2>
+      <p>This site is designed to run fully offline from a USB drive, a local folder, or a simple local web server. It uses plain HTML, CSS, JavaScript, and JSON. It stores progress locally only.</p>
+      <details>
+        <summary>How it works</summary>
+        <ul>
+          <li>Modules and lessons are described in JSON files under <code>/modules</code>.</li>
+          <li>No external fonts, images, or libraries are required.</li>
+          <li>All user progress is kept in the browser via <code>localStorage</code>.</li>
+        </ul>
+      </details>
+      <div class="quick-actions">
+        <label for="module-search" class="sr-only">Search modules</label>
+        <input id="module-search" class="input" type="search" placeholder="Search modules or lessons..." autocomplete="off" />
+        <button id="open-modules" class="btn primary" data-view="modules">Browse Modules</button>
+      </div>
+      <div id="home-suggestions" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section id="view-modules" class="view" data-view="modules" hidden>
+      <h2>Modules</h2>
+      <div id="modules-list" class="cards" aria-live="polite"></div>
+    </section>
+
+    <section id="view-lesson" class="view" data-view="lesson" hidden>
+      <button class="btn small" id="back-to-modules">&larr; Back</button>
+      <article id="lesson-article" class="lesson">
+        <!-- Lesson content injected here -->
+      </article>
+      <aside id="quiz-area" class="quiz" aria-live="polite">
+        <!-- Quiz content injected here -->
+      </aside>
+    </section>
+
+    <section id="view-progress" class="view" data-view="progress" hidden>
+      <h2>Your Progress</h2>
+      <div id="progress-summary" class="cards"></div>
+      <button id="export-progress" class="btn">Export Progress</button>
+      <button id="clear-progress" class="btn danger">Clear Progress</button>
+      <p class="note">Export creates a small JSON file that can be saved and imported later.</p>
+      <input id="import-file" type="file" accept="application/json" aria-label="Import progress JSON" />
+      <button id="import-progress" class="btn">Import Progress</button>
+    </section>
+
+    <section id="view-about" class="view" data-view="about" hidden>
+      <h2>About</h2>
+      <p>This project is engineered for low resource environments. It avoids heavy images, animations, and external dependencies. Content is modular and can be extended by adding JSON files.</p>
+      <h3>Administration (local only)</h3>
+      <p>To add content, place new JSON files in the <code>/modules/&lt;module&gt;</code> folder and update <code>/modules/index.json</code>. No build step is required.</p>
+    </section>
+
+    <noscript>
+      <section class="noscript">
+        <h2>JavaScript Required</h2>
+        <p>This site requires JavaScript to load modules and track progress. If possible, enable JavaScript or use a basic HTML export of lessons.</p>
+      </section>
+    </noscript>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <p>&copy; 2025 Offline Learning. Local use only. No tracking. No analytics.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

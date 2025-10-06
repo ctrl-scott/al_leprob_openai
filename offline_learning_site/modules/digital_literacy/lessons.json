@@ -1,0 +1,58 @@
+{
+  "lessons": [
+    {
+      "id": "what-is-a-computer",
+      "title": "What Is a Computer?",
+      "level": "Intro",
+      "content": [
+        {
+          "type": "p",
+          "text": "A computer follows instructions to process information. It has hardware and software."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Hardware: the physical parts you can touch.",
+            "Software: the programs that tell the hardware what to do."
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which is software?",
+        "choices": [
+          "Keyboard",
+          "Operating System",
+          "Monitor"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "staying-safe",
+      "title": "Staying Safe With Technology",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "p",
+          "text": "Use strong passphrases and do not share them. Be careful with unknown links and attachments."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "Use a passcode on shared devices.",
+            "Log out of accounts when finished."
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which is a safer passphrase approach?",
+        "choices": [
+          "Pet name only",
+          "Four random words",
+          "123456"
+        ],
+        "answer": 1
+      }
+    }
+  ]
+}

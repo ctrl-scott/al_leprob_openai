@@ -1,0 +1,76 @@
+{
+  "lessons": [
+    {
+      "id": "parts-of-speech-1",
+      "title": "Parts of Speech \u2014 Nouns and Verbs",
+      "level": "Intro",
+      "content": [
+        {
+          "type": "p",
+          "text": "This lesson introduces nouns and verbs using simple examples."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "A noun names a person, place, thing, or idea.",
+            "A verb shows an action or a state of being."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Examples"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "The dog runs.",
+            "Teachers help."
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which word is the verb in: 'Birds fly south.'?",
+        "choices": [
+          "Birds",
+          "fly",
+          "south"
+        ],
+        "answer": 1
+      }
+    },
+    {
+      "id": "sentence-basics-1",
+      "title": "Sentence Basics \u2014 Subjects and Predicates",
+      "level": "Intro",
+      "content": [
+        {
+          "type": "p",
+          "text": "A sentence has two main parts: a subject and a predicate."
+        },
+        {
+          "type": "ul",
+          "items": [
+            "The subject tells who or what the sentence is about.",
+            "The predicate tells what the subject does or is."
+          ]
+        },
+        {
+          "type": "h3",
+          "text": "Example"
+        },
+        {
+          "type": "p",
+          "text": "Maria (subject) reads (predicate)."
+        }
+      ],
+      "quiz": {
+        "prompt": "What is the subject in: 'The students study.'?",
+        "choices": [
+          "The students",
+          "study"
+        ],
+        "answer": 0
+      }
+    }
+  ]
+}
