@@ -20,6 +20,111 @@
           ]
         }
       ]
-    }
+    },
+    {
+         "id": "phonics-b",
+         "title": "Phonics: /b/",
+         "level": "Intro",
+         "content": [
+           { "type": "p", "text": "The letter B usually makes the /b/ sound." },
+           {
+             "type": "phoneme",
+             "grapheme": "B",
+             "ipa": "b",
+             "examples": [
+               { "word": "b", "audio": "assets/audio/phonics/b.ogg" },
+               { "word": "bat", "audio": "assets/audio/phonics/b_bat.ogg" },
+               { "word": "boat", "audio": "assets/audio/phonics/b_boat.ogg" }
+             ],
+             "minimalPairs": [
+               { "pair": ["bat", "pat"], "audioA": "assets/audio/phonics/b_bat.ogg", "audioB": "assets/audio/phonics/p_pat.ogg" }
+             ]
+           }
+         ]
+       },
+       {
+         "id": "phonics-p",
+         "title": "Phonics: /p/",
+         "level": "Intro",
+         "content": [
+           { "type": "p", "text": "The letter P usually makes the /p/ sound." },
+           {
+             "type": "phoneme",
+             "grapheme": "P",
+             "ipa": "p",
+             "examples": [
+               { "word": "p", "audio": "assets/audio/phonics/p.ogg" },
+               { "word": "pat", "audio": "assets/audio/phonics/p_pat.ogg" },
+               { "word": "pan", "audio": "assets/audio/phonics/p_pan.ogg" }
+             ],
+             "minimalPairs": [
+               { "pair": ["pat", "bat"], "audioA": "assets/audio/phonics/p_pat.ogg", "audioB": "assets/audio/phonics/b_bat.ogg" }
+             ]
+           }
+         ]
+       },
+       {
+         "id": "phonics-t",
+         "title": "Phonics: /t/",
+         "level": "Intro",
+         "content": [
+           { "type": "p", "text": "The letter T usually makes the /t/ sound." },
+           {
+             "type": "phoneme",
+             "grapheme": "T",
+             "ipa": "t",
+             "examples": [
+               { "word": "t", "audio": "assets/audio/phonics/t.ogg" },
+               { "word": "tap", "audio": "assets/audio/phonics/t_tap.ogg" },
+               { "word": "top", "audio": "assets/audio/phonics/t_top.ogg" }
+             ],
+             "minimalPairs": [
+               { "pair": ["ten", "den"], "audioA": "assets/audio/phonics/t_ten.ogg", "audioB": "assets/audio/phonics/d_den.ogg" }
+             ]
+           }
+         ]
+       },
+       {
+         "id": "phonics-s",
+         "title": "Phonics: /s/",
+         "level": "Intro",
+         "content": [
+           { "type": "p", "text": "The letter S often makes the /s/ sound." },
+           {
+             "type": "phoneme",
+             "grapheme": "S",
+             "ipa": "s",
+             "examples": [
+               { "word": "s", "audio": "assets/audio/phonics/s.ogg" },
+               { "word": "sat", "audio": "assets/audio/phonics/s_sat.ogg" },
+               { "word": "sun", "audio": "assets/audio/phonics/s_sun.ogg" }
+             ],
+             "minimalPairs": [
+               { "pair": ["sip", "zip"], "audioA": "assets/audio/phonics/s_sip.ogg", "audioB": "assets/audio/phonics/z_zip.ogg" }
+             ]
+           }
+         ]
+       },
+       {
+         "id": "phonics-a-short",
+         "title": "Phonics: short a /æ/",
+         "level": "Intro",
+         "content": [
+           { "type": "p", "text": "The letter A can make the short /æ/ sound, as in 'at'." },
+           {
+             "type": "phoneme",
+             "grapheme": "A",
+             "ipa": "æ",
+             "examples": [
+               { "word": "a", "audio": "assets/audio/phonics/a.ogg" },
+               { "word": "at", "audio": "assets/audio/phonics/a_at.ogg" },
+               { "word": "map", "audio": "assets/audio/phonics/a_map.ogg" }
+             ],
+             "minimalPairs": [
+               { "pair": ["pat", "pet"], "audioA": "assets/audio/phonics/a_pat.ogg", "audioB": "assets/audio/phonics/e_pet.ogg" }
+             ]
+           }
+         ]
+       }
   ]
 }
