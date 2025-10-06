@@ -67,6 +67,43 @@
         "comprehension"
       ],
       "lesson_count": 2
+    },
+    {
+      "id": "shapes",
+      "title": "Triangle and Counting to Three",
+      "description": "Triangle and Counting to Three",
+      "tags": [
+        "Remediation",
+        "Shapes",
+        "Triangles",
+		"Counting"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "numberline",
+      "title": "Number Line: Find 7",
+      "description": "Number line to find 7",
+      "tags": [
+        "Remediation",
+        "Foundational",
+        "Number Line",
+		"Counting"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "phonics",
+      "title": "Phonics: /m/ sound",
+      "description": "Phonics: /m/ sound",
+      "tags": [
+        "Remediation",
+        "Foundational",
+        "Phonics",
+		"Sound",
+		"Hearing"
+      ],
+      "lesson_count": 2
     }
   ]
 }

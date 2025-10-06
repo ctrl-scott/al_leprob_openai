@@ -1,0 +1,12 @@
+{
+  "lessons": [
+    {
+      "id": "find-7",
+      "title": "Number Line: Find 7",
+      "level": "Foundational",
+      "content": [
+        { "type": "numberline", "min": 0, "max": 10, "tickEvery": 1, "target": 7, "showTargetLabel": true }
+      ]
+    }
+  ]
+}

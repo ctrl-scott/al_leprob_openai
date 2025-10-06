@@ -1,0 +1,25 @@
+{
+  "lessons": [
+    {
+      "id": "phonics-m",
+      "title": "Phonics: /m/",
+      "level": "Intro",
+      "content": [
+        { "type": "p", "text": "The letter M usually makes the /m/ sound." },
+        {
+          "type": "phoneme",
+          "grapheme": "M",
+          "ipa": "m",
+          "examples": [
+			{ "word": "m", "audio": "assets/audio/phonics/m.ogg"},
+            { "word": "mat", "audio": "assets/audio/phonics/m_mat.ogg" },
+            { "word": "moon", "audio": "assets/audio/phonics/m_moon.ogg" }
+          ],
+          "minimalPairs": [
+            { "pair": ["mat", "bat"], "audioA": "assets/audio/phonics/m_mat.ogg", "audioB": "assets/audio/phonics/b_bat.ogg" }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -132,6 +132,20 @@
       alert("Could not load lessons for this module.");
     }
   }
+  
+  async function hydrateSvg() {
+    const holders = document.querySelectorAll(".svg-wrap[data-src]");
+    for (const el of holders) {
+      const src = el.getAttribute("data-src");
+      try {
+        const res = await fetch(src);
+        el.innerHTML = await res.text(); // inline the SVG markup
+      } catch {
+        // Fallback if fetch is blocked under file:// or the file is missing
+        el.innerHTML = `<img src="${escapeAttr(src)}" alt="" style="max-width:100%;height:auto"/>`;
+      }
+    }
+  }
 
   function renderLesson(lesson, collection) {
     STATE.currentLesson = lesson;
@@ -146,10 +160,86 @@
         ${renderLessonNav(lesson, collection)}
       </nav>
     `;
+	 hydrateSvg();
+	  
     renderQuiz(lesson);
     markVisited(STATE.currentModule.id, lesson.id);
   }
+  
+  function renderImg(b) {
+    const alt = escapeAttr(b.alt || "");
+    return `<p><img src="${escapeAttr(b.src)}" alt="${alt}" style="max-width:100%;height:auto"/></p>`;
+  }
 
+  function renderSvg(b) {
+    // Option A: external file
+    if (b.src) return `<div class="svg-wrap" data-src="${escapeAttr(b.src)}"></div>`;
+    // Option B: inline string (b.markup)
+    return `<div class="svg-wrap">${b.markup || ""}</div>`;
+  }
+
+  function renderAudio(b) {
+    const cap = b.caption ? `<div class="note">${escapeHtml(b.caption)}</div>` : "";
+    return `<div><audio controls preload="metadata" src="${escapeAttr(b.src)}"></audio>${cap}</div>`;
+  }
+
+  // Number line as inline SVG (lightweight)
+  function renderNumberLine(b) {
+    const min = b.min ?? 0, max = b.max ?? 10, tickEvery = b.tickEvery ?? 1;
+    const width = 300, height = 50, pad = 20;
+    const range = Math.max(1, max - min);
+   // const range = max - min;
+    const ticks = [];
+    for (let v = min; v <= max; v += tickEvery) {
+      const x = pad + ((v - min) / range) * (width - 2*pad);
+      ticks.push(`<line x1="${x}" y1="20" x2="${x}" y2="35" stroke="currentColor"/>`);
+      ticks.push(`<text x="${x}" y="48" font-size="12" text-anchor="middle">${v}</text>`);
+    }
+    const targetX = b.target != null ? pad + ((b.target - min) / range) * (width - 2*pad) : null;
+    const target = (targetX != null)
+      ? `<circle cx="${targetX}" cy="10" r="4" fill="currentColor"/>${b.showTargetLabel ? `<text x="${targetX}" y="10" dy="-6" font-size="12" text-anchor="middle">${b.target}</text>` : ""}`
+      : "";
+    return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Number line ${min} to ${max}">
+      <line x1="${pad}" y1="20" x2="${width-pad}" y2="20" stroke="currentColor"/>
+      ${ticks.join("")}
+      ${target}
+    </svg>`;
+  }
+
+  // Ten-frame (0–10)
+  function renderTenFrame(b) {
+    const value = Math.max(0, Math.min(10, Number(b.value || 0)));
+    const cells = Array.from({length:10}, (_,i) =>
+      `<div class="cell" aria-label="slot ${i+1}">${i < value ? "●" : ""}</div>`
+    ).join("");
+    return `<div class="tenframe" role="group" aria-label="${escapeAttr(b.label || "Ten frame")}">${cells}</div>`;
+  }
+
+  // Phoneme block
+  function renderPhoneme(b) {
+    const ex = (b.examples || []).map(e =>
+      `<button class="btn small" data-audio="${escapeAttr(e.audio)}">${escapeHtml(e.word)}</button>`
+    ).join(" ");
+    const mp = (b.minimalPairs || []).map(p =>
+      `<div class="card"><button class="btn small" data-audio="${escapeAttr(p.audioA)}">${escapeHtml(p.pair[0])}</button>
+       <button class="btn small" data-audio="${escapeAttr(p.audioB)}">${escapeHtml(p.pair[1])}</button></div>`
+    ).join("");
+    return `<div class="phoneme">
+      <div><strong>${escapeHtml(b.grapheme)}</strong> /${escapeHtml(b.ipa || "")}/</div>
+      <div class="examples">${ex}</div>
+      <div class="pairs">${mp}</div>
+    </div>`;
+  }
+
+  // Hook up audio buttons once:
+  document.addEventListener("click", (e) => {
+    const a = e.target.closest("[data-audio]");
+    if (!a) return;
+    const src = a.getAttribute("data-audio");
+    const audio = new Audio(src);
+    audio.play().catch(()=>{});
+  });
+  
   function renderBlocks(blocks) {
     if (!Array.isArray(blocks)) return "";
     return blocks.map(b => {
@@ -159,6 +249,12 @@
       if (b.type === "ol") return `<ol>${b.items.map(it => `<li>${escapeHtml(it)}</li>`).join("")}</ol>`;
       if (b.type === "code") return `<pre><code>${escapeHtml(b.code)}</code></pre>`;
       if (b.type === "h3") return `<h3>${escapeHtml(b.text)}</h3>`;
+	  if (b.type === "img") return renderImg(b);
+	  if (b.type === "svg") return renderSvg(b);
+	  if (b.type === "audio") return renderAudio(b);
+	  if (b.type === "numberline") return renderNumberLine(b);
+	  if (b.type === "tenframe") return renderTenFrame(b);
+	  if (b.type === "phoneme") return renderPhoneme(b);
       return "";
     }).join("");
   }

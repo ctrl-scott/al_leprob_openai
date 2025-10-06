@@ -1,0 +1,15 @@
+{
+  "lessons": [
+    {
+      "id": "triangle",
+      "title": "Triangle",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Triangle" },
+        { "type": "svg", "src": "./assets/svg/triangle.svg", "alt": "Outlined triangle" },
+        { "type": "p", "text": "A triangle has three sides." },
+        { "type": "tenframe", "value": 3, "label": "Count to three" }
+      ]
+    }
+  ]
+}
