@@ -1,0 +1,13 @@
+Math Module — Sources (APA)
+
+OpenStax. (2021). Prealgebra 2e. Rice University. https://openstax.org/details/books/prealgebra-2e
+  — Fractions, decimals, percents; arithmetic operations and number sense.
+
+OpenStax. (2016). College Algebra. Rice University. https://openstax.org/details/books/college-algebra
+  — Linear equations and inequalities, functions, systems, and quadratics.
+
+CK-12 Foundation. (n.d.). CK-12 Geometry. CK-12 Foundation. https://www.ck12.org/student/ 
+  — Common geometry formulas for area, surface area, and volume.
+
+OpenStax. (2018). Introductory Statistics. Rice University. https://openstax.org/details/books/introductory-statistics
+  — Descriptive statistics (mean, median, mode, quartiles), probability basics, and graph interpretation.

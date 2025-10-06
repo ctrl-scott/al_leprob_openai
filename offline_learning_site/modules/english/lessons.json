@@ -1,76 +1,726 @@
 {
   "lessons": [
     {
-      "id": "parts-of-speech-1",
-      "title": "Parts of Speech \u2014 Nouns and Verbs",
-      "level": "Intro",
+      "id": "english",
+      "title": "English Practice Set (Grammar, Reading, Writing) \u2014 33 Questions",
+      "level": "Practice",
       "content": [
         {
-          "type": "p",
-          "text": "This lesson introduces nouns and verbs using simple examples."
-        },
-        {
-          "type": "ul",
-          "items": [
-            "A noun names a person, place, thing, or idea.",
-            "A verb shows an action or a state of being."
-          ]
-        },
-        {
           "type": "h3",
-          "text": "Examples"
+          "text": "Conventions Q1 \u2014 Choose the correct subject\u2013verb agreement:"
+        },
+        {
+          "type": "p",
+          "text": "Either the students or the teacher ____ bringing the projector."
         },
         {
           "type": "ol",
           "items": [
-            "The dog runs.",
-            "Teachers help."
+            "A) are",
+            "B) is"
           ]
-        }
-      ],
-      "quiz": {
-        "prompt": "Which word is the verb in: 'Birds fly south.'?",
-        "choices": [
-          "Birds",
-          "fly",
-          "south"
-        ],
-        "answer": 1
-      }
-    },
-    {
-      "id": "sentence-basics-1",
-      "title": "Sentence Basics \u2014 Subjects and Predicates",
-      "level": "Intro",
-      "content": [
-        {
-          "type": "p",
-          "text": "A sentence has two main parts: a subject and a predicate."
         },
         {
-          "type": "ul",
-          "items": [
-            "The subject tells who or what the sentence is about.",
-            "The predicate tells what the subject does or is."
-          ]
+          "type": "p",
+          "text": "Answer: B \u2014 With either/or, the verb agrees with the nearer subject (teacher \u2192 is)."
         },
         {
           "type": "h3",
-          "text": "Example"
+          "text": "Conventions Q2 \u2014 Pronoun\u2013antecedent agreement:"
         },
         {
           "type": "p",
-          "text": "Maria (subject) reads (predicate)."
+          "text": "Each of the runners must show ____ bib at check\u2011in."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) their",
+            "B) his or her"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Indefinite singular antecedent \u201ceach\u201d takes a singular pronoun (his or her)."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q3 \u2014 Parallelism:"
+        },
+        {
+          "type": "p",
+          "text": "The internship taught me to write reports, analyze data, and ____."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) presenting findings",
+            "B) present findings"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Keep items in a series parallel (write, analyze, present)."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q4 \u2014 Misplaced modifier:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the clearer sentence."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Walking across campus, the library appeared on the left.",
+            "B) Walking across campus, I saw the library on the left."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The modifier should be placed next to the noun it describes (I)."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q5 \u2014 Comma usage (nonrestrictive clause):"
+        },
+        {
+          "type": "p",
+          "text": "The museum director who started last year will retire next month."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Correct as written",
+            "B) The museum director, who started last year, will retire next month."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Nonrestrictive information is set off with commas."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q6 \u2014 Semicolon vs. comma splice:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the correct revision."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The forecast was severe, we postponed the field trip.",
+            "B) The forecast was severe; we postponed the field trip."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Two independent clauses may be joined with a semicolon."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q7 \u2014 Colon usage:"
+        },
+        {
+          "type": "p",
+          "text": "Use a colon to introduce a list: The kit contains the following ____"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) items, tape, gauze, and scissors",
+            "B) items: tape, gauze, and scissors"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 A complete clause before the colon introduces the list."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q8 \u2014 Apostrophes:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the correct possessive form."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) the teachers lounge",
+            "B) the teachers\u2019 lounge"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Plural possessive for teachers is teachers\u2019."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q9 \u2014 Commonly confused words:"
+        },
+        {
+          "type": "p",
+          "text": "The new policy will ____ everyone\u2019s schedule."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) affect",
+            "B) effect"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Affect is the verb meaning to influence."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q10 \u2014 Tense consistency:"
+        },
+        {
+          "type": "p",
+          "text": "I studied the manual, take notes, and asked questions."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) studied, took, and asked",
+            "B) study, take, and ask"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Keep verbs in the same tense when listing past actions."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q11 \u2014 Agreement with collective nouns:"
+        },
+        {
+          "type": "p",
+          "text": "The team ____ its uniforms every Friday."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) wear",
+            "B) wears"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 In American English, collective nouns are usually singular (team wears)."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q12 \u2014 Hyphenation:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the correct form."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) a well written report",
+            "B) a well\u2011written report"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Use a hyphen in a compound modifier before a noun."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q13 \u2014 Passage 1"
+        },
+        {
+          "type": "p",
+          "text": "A city neighborhood turned a vacant lot into a community garden. At first, only a few residents signed up for watering shifts and cleanup days. After the first harvest, however, the effort gained momentum. Families began trading recipes, and the local clinic offered a free class on nutrition. People who rarely spoke to one another before now swapped tomato seedlings and advice. Although the garden produced a modest amount of food, its greatest yield was social: a stronger network of neighbors who looked after the space and after one another."
+        },
+        {
+          "type": "h3",
+          "text": "Q13a \u2014 The central idea is that the garden:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) failed to produce enough food to matter",
+            "B) improved community ties beyond food production",
+            "C) increased property values immediately",
+            "D) replaced all grocery shopping for participants"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The passage emphasizes social benefits as the greatest yield."
+        },
+        {
+          "type": "h3",
+          "text": "Q13b \u2014 In context, \u201cgained momentum\u201d most nearly means:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) shrank",
+            "B) paused",
+            "C) accelerated",
+            "D) concluded"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Momentum refers to increasing participation and activity."
+        },
+        {
+          "type": "h3",
+          "text": "Q13c \u2014 The author\u2019s purpose is primarily to:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) argue against urban gardening",
+            "B) narrate a failed experiment",
+            "C) inform about a policy debate",
+            "D) describe community benefits of a small project"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: D \u2014 The paragraph describes benefits and outcomes of the garden."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q14 \u2014 Passage 2"
+        },
+        {
+          "type": "p",
+          "text": "Before the adoption of standardized time zones, towns set their clocks by the sun. The practice worked for local life but became confusing once railroads connected cities. Arrival and departure times could not be coordinated across long distances. In 1883, American railroads agreed to use four time zones to synchronize schedules. Congress later adopted the system for the country. The change did more than simplify timetables; it encouraged businesses and travelers to think on a national scale."
+        },
+        {
+          "type": "h3",
+          "text": "Q14a \u2014 The problem standardized time zones solved was:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) the cost of railroad tickets",
+            "B) the lack of clocks in rural towns",
+            "C) uncoordinated schedules across distances",
+            "D) train safety regulations"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Time zones coordinated arrival and departure times."
+        },
+        {
+          "type": "h3",
+          "text": "Q14b \u2014 The tone of the passage is best described as:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) skeptical",
+            "B) informative",
+            "C) satirical",
+            "D) nostalgic"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The passage explains historical changes in a neutral, factual way."
+        },
+        {
+          "type": "h3",
+          "text": "Q14c \u2014 According to the passage, a broader effect of time zones was that they:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) reduced the number of trains in service",
+            "B) encouraged a national way of thinking",
+            "C) eliminated local traditions",
+            "D) required new kinds of clocks"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The change encouraged national\u2011scale coordination."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q15 \u2014 Vocabulary in context:"
+        },
+        {
+          "type": "p",
+          "text": "In Passage 1, the word \u201cmodest\u201d most nearly means:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) extravagant",
+            "B) limited",
+            "C) accidental",
+            "D) priceless"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Modest here means limited in amount."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q16 \u2014 Author\u2019s technique:"
+        },
+        {
+          "type": "p",
+          "text": "Which detail best supports the claim that the garden strengthened the community?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Residents signed up for watering shifts.",
+            "B) The clinic offered a class on nutrition.",
+            "C) Families traded recipes and seedlings.",
+            "D) The harvest was modest."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Trading recipes and seedlings shows social connection."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q17 \u2014 Inference:"
+        },
+        {
+          "type": "p",
+          "text": "From Passage 2, one can infer that railroads:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) created local noon in every town",
+            "B) were unaffected by timekeeping",
+            "C) had difficulty publishing reliable schedules before time zones",
+            "D) banned long\u2011distance trips"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 The passage states schedules could not be coordinated."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q18 \u2014 Structure:"
+        },
+        {
+          "type": "p",
+          "text": "Which best describes Passage 2\u2019s organization?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) cause \u2192 effect",
+            "B) comparison \u2192 contrast",
+            "C) problem \u2192 solution",
+            "D) definition \u2192 example"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 It presents a problem and the solution of standardized time."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q19 \u2014 Concision:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the more concise sentence."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Due to the fact that the meeting is at 2 p.m., we will need to leave early in advance.",
+            "B) Because the meeting is at 2 p.m., we need to leave early."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Eliminates wordiness while keeping meaning."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q20 \u2014 Transition choice:"
+        },
+        {
+          "type": "p",
+          "text": "Which transitional word best shows contrast?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Therefore",
+            "B) However",
+            "C) Furthermore",
+            "D) For example"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 \u201cHowever\u201d signals contrast."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q21 \u2014 Evidence selection:"
+        },
+        {
+          "type": "p",
+          "text": "To support the claim that the garden improved health, which evidence is strongest?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) One neighbor said the tomatoes were delicious.",
+            "B) The clinic reported a 15% increase in attendance at nutrition classes.",
+            "C) Volunteers liked working together.",
+            "D) The plot sizes were equal."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Quantified, relevant evidence supports the claim."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q22 \u2014 Topic sentence strength:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the best topic sentence for a paragraph about the benefits of public libraries."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Libraries are buildings with books in them.",
+            "B) Public libraries provide resources and programs that expand opportunity for all ages."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 It is focused and establishes a clear claim."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q23 \u2014 Logical order:"
+        },
+        {
+          "type": "p",
+          "text": "Which sentence should come first in a paragraph describing a process?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Finally, water the seedlings lightly after transplanting.",
+            "B) First, fill the containers with soil and label them."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Signals the beginning of the sequence."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q24 \u2014 Clarity (ambiguous pronoun):"
+        },
+        {
+          "type": "p",
+          "text": "Revise to remove ambiguity: \u201cMaria told Ana that she would bring the tools.\u201d"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Maria told Ana, \u201cI will bring the tools.\u201d",
+            "B) Maria told Ana that Ana would bring the tools."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Specifies the subject clearly."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q25 \u2014 Tone and audience:"
+        },
+        {
+          "type": "p",
+          "text": "Which sentence is more appropriate for a formal report?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The pilot study was kind of successful in several ways.",
+            "B) The pilot study yielded promising results in several measures."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Uses precise, formal language."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q26 \u2014 Editing redundancy:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the better sentence."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Each and every participant received a free gift.",
+            "B) Each participant received a gift."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Removes redundancy."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q27 \u2014 Combine sentences for flow:"
+        },
+        {
+          "type": "p",
+          "text": "Combine for clarity: \u201cThe device was tested. The results were accurate.\u201d"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The device was tested, and the results were accurate.",
+            "B) The device, tested, results accurate."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Creates a clear, grammatically complete sentence."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q28 \u2014 Comma after introductory element:"
+        },
+        {
+          "type": "p",
+          "text": "____ finishing the survey, please submit the form."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) After",
+            "B) After,"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 The comma follows the introductory phrase: After finishing the survey, \u2026"
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q29 \u2014 Author\u2019s purpose (Passage 1):"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) persuade the city to sell the lot",
+            "B) explain how a small project built social ties",
+            "C) warn residents about gardening rules",
+            "D) analyze the national economy"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Purpose centers on community building."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q30 \u2014 Sentence boundaries:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the sentence without a run\u2011on."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The streets were icy we stayed home.",
+            "B) The streets were icy, so we stayed home."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The coordinating conjunction and comma correctly join clauses."
+        },
+        {
+          "type": "h3",
+          "text": "Conventions Q31 \u2014 Dashes vs. commas:"
+        },
+        {
+          "type": "p",
+          "text": "Choose the option that best sets off an abrupt break."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The result\u2014unexpected at first\u2014was confirmed by a second trial.",
+            "B) The result, unexpected at first, was confirmed by a second trial."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Dashes emphasize the interruption more strongly."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q32 \u2014 Central idea (Passage 2):"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Sun clocks are superior to standard time.",
+            "B) Standardized time zones supported national coordination.",
+            "C) Local noon should dictate rail schedules.",
+            "D) Clocks were banned on trains."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Central idea is national coordination through time zones."
+        },
+        {
+          "type": "h3",
+          "text": "Writing Q33 \u2014 Revise for clarity:"
+        },
+        {
+          "type": "p",
+          "text": "Which revision improves clarity the most?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) There are many different kinds of various types of errors.",
+            "B) Several common errors occur repeatedly."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Removes vagueness and redundancy."
         }
-      ],
-      "quiz": {
-        "prompt": "What is the subject in: 'The students study.'?",
-        "choices": [
-          "The students",
-          "study"
-        ],
-        "answer": 0
-      }
+      ]
     }
   ]
 }

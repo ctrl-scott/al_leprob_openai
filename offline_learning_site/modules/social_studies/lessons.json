@@ -1,0 +1,351 @@
+{
+  "lessons": [
+    {
+      "id": "practice-set-1",
+      "title": "Social Studies Practice Set (20 Questions)",
+      "level": "Practice",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Civics Q1 \u2014 What is the supreme law of the land?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The Declaration of Independence",
+            "B) The U.S. Constitution",
+            "C) The Articles of Confederation",
+            "D) The Bill of Rights"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The Constitution is the supreme law of the land."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q2 \u2014 Which branch makes federal laws?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Executive",
+            "B) Judicial",
+            "C) Legislative (Congress)",
+            "D) State governments"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Congress (House and Senate) makes federal laws."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q3 \u2014 The President vetoes a bill. Which branch can override the veto?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Judicial",
+            "B) Legislative (Congress)",
+            "C) State legislatures",
+            "D) The Cabinet"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Congress can override a veto with a two\u2011thirds vote in both chambers."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q4 \u2014 How many U.S. Senators are there?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 50",
+            "B) 100",
+            "C) 435",
+            "D) 538"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 100 (two per state)."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q5 \u2014 How long is a Supreme Court Justice\u2019s term?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 2 years",
+            "B) 4 years",
+            "C) 6 years",
+            "D) Life tenure (during good behavior)"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: D \u2014 Justices serve during good behavior, effectively life tenure."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q6 \u2014 Who is in charge of the executive branch?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Speaker of the House",
+            "B) Chief Justice",
+            "C) The President",
+            "D) Senate Majority Leader"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 The President leads the executive branch."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q7 \u2014 Which freedom is protected by the Bill of Rights?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Freedom of speech",
+            "B) The right to vote at any age",
+            "C) Freedom from taxes",
+            "D) Unlimited travel without documents"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 The First Amendment protects freedom of speech (among others)."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q8 \u2014 Which power is reserved to the states?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Coin money",
+            "B) Declare war",
+            "C) Establish public schools",
+            "D) Enter into treaties"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Education is primarily a state power."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q9 \u2014 What is one responsibility only for U.S. citizens?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Obey the law",
+            "B) Pay taxes",
+            "C) Serve on a jury",
+            "D) Follow traffic signs"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Jury service is limited to U.S. citizens."
+        },
+        {
+          "type": "h3",
+          "text": "Civics Q10 \u2014 In presidential elections, who casts the decisive votes?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The national popular vote",
+            "B) The Supreme Court",
+            "C) The Electoral College",
+            "D) The House of Representatives in every election"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 The Electoral College determines the winner (House decides only if no majority)."
+        },
+        {
+          "type": "h3",
+          "text": "History Q11 \u2014 In what year was the Declaration of Independence adopted?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 1787",
+            "B) 1776",
+            "C) 1812",
+            "D) 1865"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 1776."
+        },
+        {
+          "type": "h3",
+          "text": "History Q12 \u2014 The U.S. Civil War was fought mainly over which issue?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Western expansion",
+            "B) Slavery",
+            "C) Income taxes",
+            "D) Territorial disputes with Canada"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Slavery was the central issue."
+        },
+        {
+          "type": "h3",
+          "text": "History Q13 \u2014 Which New Deal program insured bank deposits?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) TVA",
+            "B) FDIC",
+            "C) WPA",
+            "D) CCC"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The FDIC insures deposits."
+        },
+        {
+          "type": "h3",
+          "text": "History Q14 \u2014 The 19th Amendment secured which right?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Freedom of speech",
+            "B) Prohibition",
+            "C) Women\u2019s suffrage",
+            "D) Direct election of Senators"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Women\u2019s suffrage."
+        },
+        {
+          "type": "h3",
+          "text": "Economics Q15 \u2014 What is opportunity cost?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The money price of a good",
+            "B) The total revenue of a firm",
+            "C) The cost of all alternatives",
+            "D) The value of the next best alternative given up"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: D \u2014 Opportunity cost is the value of the next best alternative forgone."
+        },
+        {
+          "type": "h3",
+          "text": "Economics Q16 \u2014 What does inflation measure?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The unemployment rate",
+            "B) The rise in the average price level over time",
+            "C) The value of exports",
+            "D) Interest rates set by banks"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Inflation is a general increase in prices."
+        },
+        {
+          "type": "h3",
+          "text": "Economics Q17 \u2014 Which policy is controlled by the Federal Reserve?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Fiscal policy",
+            "B) Monetary policy",
+            "C) Trade policy",
+            "D) Tax credits for households"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The Federal Reserve manages monetary policy (money supply and interest rates)."
+        },
+        {
+          "type": "h3",
+          "text": "Geography Q18 \u2014 Which river forms part of the border between Texas and Mexico?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Colorado River",
+            "B) Rio Grande",
+            "C) Missouri River",
+            "D) Ohio River"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The Rio Grande."
+        },
+        {
+          "type": "h3",
+          "text": "Geography Q19 \u2014 The Great Lakes lie primarily along the border of which two countries?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) United States and Mexico",
+            "B) United States and Canada",
+            "C) United States and Cuba",
+            "D) United States and The Bahamas"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 United States and Canada."
+        },
+        {
+          "type": "h3",
+          "text": "Geography Q20 \u2014 Which U.S. region contains the Rocky Mountains?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Southeast",
+            "B) Midwest",
+            "C) West",
+            "D) Northeast"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 The West."
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,33 @@
       "lesson_count": 2
     },
     {
+      "id": "social_studies",
+      "title": "Social Studies",
+      "description": "Social Studies is the integrated study of human society.",
+      "tags": [
+        "social studies",
+        "history",
+        "geography",
+		"economics",
+		"civics",
+		"psychology"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "description": "Science is the systematic study of the natural world & is characterized by its reliance on evidence.",
+      "tags": [
+        "science",
+        "experimentation",
+        "hypotheses",
+		"study",
+		"observation"
+      ],
+      "lesson_count": 2
+    },
+    {
       "id": "math",
       "title": "Everyday Math",
       "description": "Practical arithmetic and problem solving.",

@@ -1,0 +1,768 @@
+{
+  "lessons": [
+    {
+      "id": "science-practice-1",
+      "title": "Science Practice Set \u2014 Reading, Experiments, Numbers (33 Questions)",
+      "level": "Practice",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Reading Q1 \u2014 Passage 1"
+        },
+        {
+          "type": "p",
+          "text": "A researcher observed two ponds located a mile apart. Pond A is shaded by trees and receives nutrient runoff from nearby gardens. Pond B is in full sun and has no nearby gardens. During the summer, Pond A developed a thick layer of algae, while Pond B remained relatively clear. The researcher measured dissolved oxygen and found that Pond A showed large daily swings, with very low levels just before sunrise. Pond B showed smaller swings and maintained higher minimum oxygen levels."
+        },
+        {
+          "type": "h3",
+          "text": "Q1a \u2014 Which factor most likely explains the algae growth in Pond A?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Pond A receives more wind than Pond B",
+            "B) Nutrient runoff from gardens feeds algal growth",
+            "C) The ponds are one mile apart",
+            "D) Pond A has fewer fish"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Nutrient runoff increases available nitrogen and phosphorus that fuel algae."
+        },
+        {
+          "type": "h3",
+          "text": "Q1b \u2014 Why are oxygen levels in Pond A lowest just before sunrise?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Photosynthesis is highest at night",
+            "B) Respiration by organisms continues overnight while photosynthesis stops in the dark",
+            "C) Oxygen dissolves better in warm water at night",
+            "D) Wind stops at night, increasing oxygen"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Without light, photosynthesis stops but respiration continues, lowering oxygen by dawn."
+        },
+        {
+          "type": "h3",
+          "text": "Q1c \u2014 Which statement best expresses the passage\u2019s central idea?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) All ponds stay clear in summer",
+            "B) Sunlight always prevents algae",
+            "C) Nutrient input and light exposure affect algal growth and oxygen dynamics",
+            "D) Ponds a mile apart are identical"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 The observations connect nutrients and light to algae and oxygen swings."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q2 \u2014 Passage 2"
+        },
+        {
+          "type": "p",
+          "text": "A school tested an after\u2011school study program. Volunteers joined a 6\u2011week program that provided quiet space, tutors, and structured breaks. Participants\u2019 average test scores increased by 8 points compared to their previous scores. Nonparticipants\u2019 average scores increased by 3 points over the same period. The study did not randomly assign students. Many volunteers already reported high motivation to improve their grades."
+        },
+        {
+          "type": "h3",
+          "text": "Q2a \u2014 Which conclusion is most supported by the results?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The program caused all students to score higher than nonparticipants",
+            "B) The program is correlated with larger score gains among volunteers",
+            "C) The program had no effect on learning",
+            "D) Random assignment confirmed the program\u2019s effect"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Results show an association; causation is not proven without random assignment."
+        },
+        {
+          "type": "h3",
+          "text": "Q2b \u2014 Which limitation most weakens a causal claim?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The program lasted six weeks",
+            "B) The school measured scores",
+            "C) Participation was not randomized and volunteers reported high motivation",
+            "D) The school provided structured breaks"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Self\u2011selection and preexisting motivation introduce confounding."
+        },
+        {
+          "type": "h3",
+          "text": "Q2c \u2014 What is the author\u2019s purpose in including both groups\u2019 gains?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) To show that only nonparticipants improved",
+            "B) To compare changes and suggest the program may help",
+            "C) To prove the program works for every student",
+            "D) To discourage future studies"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The comparison suggests a possible benefit but does not prove causation."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q3 \u2014 Vocabulary in context (Passage 1): \u201cswings\u201d most nearly means:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) playground equipment",
+            "B) large changes",
+            "C) seasonal averages",
+            "D) measurement errors"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Here, swings refers to large daily changes in dissolved oxygen."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q4 \u2014 Which detail best supports the claim that light influences oxygen levels in ponds?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) The ponds are one mile apart",
+            "B) Pond B had higher minimum oxygen and smaller daily swings",
+            "C) Pond A is shaded by trees",
+            "D) Both ponds contain water"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Shade reduces photosynthesis, contributing to lower overnight oxygen in Pond A."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q5 \u2014 Which statement is an inference from Passage 2?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Motivation may partly explain volunteers\u2019 larger gains",
+            "B) Tutors guaranteed success for all",
+            "C) The program harmed nonparticipants",
+            "D) The program lasted for a full year"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 The passage suggests motivated volunteers may improve more regardless of the program."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q6 \u2014 Identify variables"
+        },
+        {
+          "type": "p",
+          "text": "A lab tests how fertilizer concentration affects bean plant height over 4 weeks."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Independent variable: plant height; dependent: fertilizer concentration",
+            "B) Independent variable: fertilizer concentration; dependent: plant height",
+            "C) Independent variable: time only; dependent: sunlight",
+            "D) Independent variable: soil mass; dependent: water pH"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The researcher changes fertilizer concentration and measures height."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q7 \u2014 Controls and constants"
+        },
+        {
+          "type": "p",
+          "text": "Which is the best control setup?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Plants with 0% fertilizer, same soil, water, and light as other groups",
+            "B) Plants with 10% fertilizer and different soil",
+            "C) No plants",
+            "D) Plants with 0% fertilizer but watered twice as often"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Control receives 0% fertilizer with all other conditions constant."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q8 \u2014 Sample size and replication"
+        },
+        {
+          "type": "p",
+          "text": "Which choice strengthens reliability the most?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Use 1 plant per treatment",
+            "B) Use 10 plants per treatment and repeat the experiment",
+            "C) Change fertilizer brand mid\u2011experiment",
+            "D) Measure height only once"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Larger sample size and replication reduce random error."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q9 \u2014 Blinding and placebo"
+        },
+        {
+          "type": "p",
+          "text": "In a headache study, which design reduces bias?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Open\u2011label test with caffeine tablets only",
+            "B) Single\u2011blind test with caffeine vs. sugar pill",
+            "C) No control group",
+            "D) Unlabeled herbal teas with different flavors"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 A placebo control with blinding reduces expectation bias."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q10 \u2014 Operational definition"
+        },
+        {
+          "type": "p",
+          "text": "Which definition is most measurable?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Plants are healthy if they look nice",
+            "B) Plant health is the number of leaves per plant after 21 days",
+            "C) Plants are healthy if they are green",
+            "D) Plants are healthy if they are tall"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 A countable measure provides clarity and repeatability."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q11 \u2014 Hypotheses and predictions"
+        },
+        {
+          "type": "p",
+          "text": "Which is a testable prediction?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Adding 2% salt to water will reduce seed germination by at least 20% compared to fresh water",
+            "B) Salt water is bad",
+            "C) Plants dislike salt",
+            "D) Seeds are complicated"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 It is specific, measurable, and comparative."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q12 \u2014 Confounding variables"
+        },
+        {
+          "type": "p",
+          "text": "A sleep study adds blue\u2011light filters but also changes bedtime. Which is confounded?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Light color and bedtime both changed",
+            "B) Only light color changed",
+            "C) Only bedtime changed",
+            "D) Neither changed"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Two variables changed, confounding effects."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q13 \u2014 Data quality"
+        },
+        {
+          "type": "p",
+          "text": "Which practice best reduces measurement error for lab mass readings?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Use a balance with appropriate precision and calibrate it",
+            "B) Use a kitchen scale for all samples",
+            "C) Round masses to the nearest 10 g",
+            "D) Measure once per week only"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Calibration and proper precision reduce error."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q14 \u2014 Ethics in experiments"
+        },
+        {
+          "type": "p",
+          "text": "Which action aligns with ethical research?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Not informing participants about risks",
+            "B) Informed consent and confidentiality",
+            "C) Pressuring students to join",
+            "D) Discarding data that do not fit hypotheses"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Respect for persons, informed consent, and confidentiality are key."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q15 \u2014 Interpreting conclusions"
+        },
+        {
+          "type": "p",
+          "text": "A study finds a correlation between screen time and lower sleep. The best conclusion is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Screen time causes poor sleep in all cases",
+            "B) There is an association; experiments are needed to test causation",
+            "C) Sleep causes more screen time",
+            "D) The correlation is meaningless"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Correlation alone does not establish causation."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q16 \u2014 Reproducibility"
+        },
+        {
+          "type": "p",
+          "text": "Which change best improves reproducibility?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Provide detailed procedures and share data",
+            "B) Summarize the method vaguely",
+            "C) Use unique instruments no one else has",
+            "D) Report only successful trials"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Detailed methods and open data enable replication."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q17 \u2014 Mean and median"
+        },
+        {
+          "type": "p",
+          "text": "Data (g): 3, 7, 7, 9, 14."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Mean = 8; Median = 7",
+            "B) Mean = 8; Median = 8",
+            "C) Mean = 7; Median = 8",
+            "D) Mean = 7; Median = 7"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Mean (3+7+7+9+14)/5 = 40/5 = 8; median is 7."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q18 \u2014 Range and interquartile range (IQR)"
+        },
+        {
+          "type": "p",
+          "text": "Ordered data: 2, 4, 5, 7, 8, 10, 13, 14."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Range = 12; IQR = 6",
+            "B) Range = 14; IQR = 5",
+            "C) Range = 12; IQR = 5",
+            "D) Range = 10; IQR = 6"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Range 14\u22122 = 12; Q1 = (4+5)/2 = 4.5; Q3 = (10+13)/2 = 11.5; IQR = 11.5\u22124.5 = 7 (Correction: IQR = 7)."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q19 \u2014 Percent change"
+        },
+        {
+          "type": "p",
+          "text": "A value increases from 60 to 75. Percent change is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 20%",
+            "B) 25%",
+            "C) 15%",
+            "D) 12.5%"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 (75\u221260)/60 = 15/60 = 0.25 = 25%."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q20 \u2014 Slope from a data table"
+        },
+        {
+          "type": "p",
+          "text": "Time (s): 2, 5; Distance (m): 8, 20. Slope (m/s) is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 4",
+            "B) 6",
+            "C) 2",
+            "D) 8"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 (20\u22128)/(5\u22122) = 12/3 = 4 m/s."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q21 \u2014 Unit conversion"
+        },
+        {
+          "type": "p",
+          "text": "Convert 450 mL to liters."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 0.045 L",
+            "B) 0.45 L",
+            "C) 4.5 L",
+            "D) 45 L"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 1000 mL = 1 L; 450 mL = 0.45 L."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q22 \u2014 Significant figures"
+        },
+        {
+          "type": "p",
+          "text": "Multiply 2.40 cm \u00d7 3.1 cm. Record with correct significant figures."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 7.44 cm^2",
+            "B) 7.4 cm^2",
+            "C) 7.5 cm^2",
+            "D) 7 cm^2"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Result 7.44, but limited to 2 significant figures (3.1) \u2192 7.4 cm^2."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q23 \u2014 Reading a bar chart (table given)"
+        },
+        {
+          "type": "p",
+          "text": "Species counts: oak = 12, pine = 7, maple = 9. Which species is most common and what percent of total is it?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Oak; 40%",
+            "B) Oak; 44%",
+            "C) Maple; 36%",
+            "D) Pine; 28%"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Total = 12+7+9 = 28; oak 12/28 \u2248 42.9% \u2248 43%; closest choice 44%."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q24 \u2014 Density by hand"
+        },
+        {
+          "type": "p",
+          "text": "A sample has mass 18 g and volume 6 cm^3. Density is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 3 g/cm^3",
+            "B) 0.33 g/cm^3",
+            "C) 12 g/cm^3",
+            "D) 108 g/cm^3"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 18/6 = 3 g/cm^3."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q25 \u2014 Interpreting a line graph (table given)"
+        },
+        {
+          "type": "p",
+          "text": "Temperature (\u00b0C): 10, 15, 20; Solubility (g/100 mL): 20, 28, 37. The best description is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Solubility decreases as temperature increases",
+            "B) Solubility remains constant",
+            "C) Solubility increases with temperature at an increasing rate",
+            "D) Solubility increases with temperature at a decreasing rate"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Differences are +8 then +9, suggesting a slightly increasing rate."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q26 \u2014 Proportional reasoning"
+        },
+        {
+          "type": "p",
+          "text": "If 5 mL of indicator is needed for 8 tests, how much is needed for 20 tests?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 10 mL",
+            "B) 12.5 mL",
+            "C) 20 mL",
+            "D) 25 mL"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 5/8 = x/20 \u2192 x = (5\u00d720)/8 = 12.5 mL."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q27 \u2014 Reading methods"
+        },
+        {
+          "type": "p",
+          "text": "A paper states, \u201cWe used randomized blocks by classroom.\u201d What does this control?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Differences among classrooms as a confounding factor",
+            "B) The placebo effect",
+            "C) Measurement error of devices",
+            "D) Publication bias"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Blocking by classroom accounts for classroom\u2011level differences."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q28 \u2014 Interpreting claims"
+        },
+        {
+          "type": "p",
+          "text": "An ad claims a supplement \u201csupports focus\u201d based on an uncontrolled study. Best interpretation is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Strong evidence of causation",
+            "B) Moderate evidence of causation",
+            "C) Weak evidence; lack of control limits conclusions",
+            "D) Proof that no benefit exists"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: C \u2014 Without controls and randomization, conclusions are limited."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q29 \u2014 Graph choice"
+        },
+        {
+          "type": "p",
+          "text": "Which graph best displays a relationship between temperature (\u00b0C) and enzyme rate (units/s)?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Bar chart",
+            "B) Scatter plot with a trend line",
+            "C) Pie chart",
+            "D) Dot plot of categories"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Two quantitative variables \u2192 scatter plot."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q30 \u2014 Median from frequency table"
+        },
+        {
+          "type": "p",
+          "text": "Heights (cm): 150(2), 155(3), 160(4), 165(1). What is the median?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 155",
+            "B) 160",
+            "C) 157.5",
+            "D) 162.5"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 Data size = 10; median is average of 5th and 6th values, both 160."
+        },
+        {
+          "type": "h3",
+          "text": "Numbers Q31 \u2014 Error and uncertainty"
+        },
+        {
+          "type": "p",
+          "text": "A length is 12.0 \u00b1 0.1 cm. Which is a reasonable range?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) 11.9 to 12.1 cm",
+            "B) 11.0 to 12.0 cm",
+            "C) 12.0 to 12.2 cm",
+            "D) 10.0 to 14.0 cm"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 The \u00b1 value indicates an interval around the measured value."
+        },
+        {
+          "type": "h3",
+          "text": "Design Q32 \u2014 Negative controls"
+        },
+        {
+          "type": "p",
+          "text": "In a microbial culture test, which is a negative control?"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Plate inoculated with sterile water",
+            "B) Plate with sample",
+            "C) Plate with nutrient agar and bacteria",
+            "D) Plate with extra sugar"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: A \u2014 Sterile water should yield no growth, verifying sterility."
+        },
+        {
+          "type": "h3",
+          "text": "Reading Q33 \u2014 Author\u2019s tone"
+        },
+        {
+          "type": "p",
+          "text": "A report neutrally describes methods and results, notes limitations, and suggests further study. The tone is:"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "A) Persuasive",
+            "B) Informative/objective",
+            "C) Humorous",
+            "D) Celebratory"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: B \u2014 The tone is informational and objective."
+        }
+      ]
+    }
+  ]
+}

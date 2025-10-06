@@ -1,0 +1,350 @@
+{
+  "lessons": [
+    {
+      "id": "arithmetic-hand",
+      "title": "Basic Arithmetic \u2014 Fractions, Decimals, Percents",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Problem 1 \u2014 Add fractions: 3/4 + 2/3"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Find a common denominator: LCM(4, 3) = 12.",
+            "Convert: 3/4 = 9/12 and 2/3 = 8/12.",
+            "Add numerators: 9/12 + 8/12 = 17/12.",
+            "Write as a mixed number: 17/12 = 1 and 5/12."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 17/12 (that is, 1 5/12)."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 2 \u2014 Subtract fractions: 2 1/5 \u2212 3/10"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Convert the mixed number to an improper fraction: 2 1/5 = 11/5.",
+            "Use denominator 10: 11/5 = 22/10.",
+            "Subtract: 22/10 \u2212 3/10 = 19/10.",
+            "Convert to a mixed number: 19/10 = 1 and 9/10."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 19/10 (that is, 1 9/10)."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 3 \u2014 Add and subtract decimals: 4.58 + 0.7 \u2212 2.043"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Align decimals: 4.58 + 0.70 \u2212 2.043.",
+            "Add first: 4.58 + 0.70 = 5.28.",
+            "Subtract: 5.28 \u2212 2.043 = 3.237."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 3.237."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 4 \u2014 Find a percent of a number: 15% of 260"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Write percent as a decimal: 15% = 0.15.",
+            "Multiply: 0.15 \u00d7 260 = 39."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 39."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 5 \u2014 Convert a fraction to a decimal and percent: 7/20"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Divide: 7 \u00f7 20 = 0.35.",
+            "Write as a percent: 0.35 = 35%."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 0.35 and 35%."
+        }
+      ]
+    },
+    {
+      "id": "algebra-hand",
+      "title": "Algebra \u2014 Equations, Inequalities, Functions",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Problem 1 \u2014 Solve: 3(x \u2212 4) = 2x + 5"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Distribute: 3x \u2212 12 = 2x + 5.",
+            "Subtract 2x from both sides: x \u2212 12 = 5.",
+            "Add 12 to both sides: x = 17."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: x = 17."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 2 \u2014 Solve inequality: 5 \u2212 2y \u2264 11"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Subtract 5 from both sides: \u22122y \u2264 6.",
+            "Divide by \u22122 and reverse the inequality: y \u2265 \u22123."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: y \u2265 \u22123."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 3 \u2014 Evaluate and invert a linear function: f(x) = 2x \u2212 3"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Evaluate at x = 5: f(5) = 2\u00b75 \u2212 3 = 7.",
+            "Find x when f(x) = 7: 2x \u2212 3 = 7 \u2192 2x = 10 \u2192 x = 5."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answers: f(5) = 7; when f(x) = 7, x = 5."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 4 \u2014 Solve a system by substitution: y = x + 1; 2x + y = 8"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Substitute y into the second equation: 2x + (x + 1) = 8.",
+            "Combine like terms: 3x + 1 = 8 \u2192 3x = 7 \u2192 x = 7/3.",
+            "Find y: y = x + 1 = 7/3 + 1 = 10/3."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: (x, y) = (7/3, 10/3)."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 5 \u2014 Solve a quadratic by factoring: x^2 \u2212 5x + 6 = 0"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Factor: (x \u2212 2)(x \u2212 3) = 0.",
+            "Set each factor to zero: x \u2212 2 = 0 or x \u2212 3 = 0.",
+            "Solutions: x = 2 or x = 3."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answers: x = 2, 3."
+        }
+      ]
+    },
+    {
+      "id": "geometry-hand",
+      "title": "Geometry \u2014 Area, Volume, Surface Area",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Problem 1 \u2014 Area of a rectangle: length 7 cm, width 4.5 cm"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Use A = l \u00d7 w.",
+            "Compute: 7 \u00d7 4.5 = 31.5 cm^2."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 31.5 cm^2."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 2 \u2014 Area of a triangle: base 12 m, height 5 m"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Use A = (1/2) b h.",
+            "Compute: (1/2) \u00d7 12 \u00d7 5 = 30 m^2."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 30 m^2."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 3 \u2014 Volume of a rectangular prism: 3 m \u00d7 2 m \u00d7 5 m"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Use V = l \u00d7 w \u00d7 h.",
+            "Compute: 3 \u00d7 2 \u00d7 5 = 30 m^3."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 30 m^3."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 4 \u2014 Volume of a cylinder: radius 4 cm, height 10 cm"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Use V = \u03c0 r^2 h.",
+            "Compute r^2: 4^2 = 16.",
+            "Compute: \u03c0 \u00d7 16 \u00d7 10 = 160\u03c0 \u2248 502.654 cm^3."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 160\u03c0 cm^3 (approximately 502.654 cm^3)."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 5 \u2014 Surface area of a cube: side length 6 in"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Use SA = 6 s^2.",
+            "Compute: 6 \u00d7 6^2 = 6 \u00d7 36 = 216 in^2."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 216 in^2."
+        }
+      ]
+    },
+    {
+      "id": "data-analysis-hand",
+      "title": "Data Analysis \u2014 Statistics, Probability, Graphs",
+      "level": "Foundational",
+      "content": [
+        {
+          "type": "h3",
+          "text": "Problem 1 \u2014 Mean, median, mode of {2, 5, 5, 7, 9}"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Mean: (2 + 5 + 5 + 7 + 9) \u00f7 5 = 28 \u00f7 5 = 5.6.",
+            "Median: the middle value in order is 5.",
+            "Mode: the most frequent value is 5."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answers: mean = 5.6, median = 5, mode = 5."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 2 \u2014 Range and quartiles of {1, 2, 3, 4, 5, 6, 7, 8}"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Range: max \u2212 min = 8 \u2212 1 = 7.",
+            "Median (Q2): average of 4th and 5th values: (4 + 5)/2 = 4.5.",
+            "Lower half {1,2,3,4}: Q1 = median = (2 + 3)/2 = 2.5.",
+            "Upper half {5,6,7,8}: Q3 = median = (6 + 7)/2 = 6.5."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answers: range = 7; Q1 = 2.5, Q2 = 4.5, Q3 = 6.5."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 3 \u2014 Probability of exactly two heads in three fair coin tosses"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Total outcomes: 2^3 = 8.",
+            "Favorable outcomes: HHT, HTH, THH \u2192 3 outcomes.",
+            "Probability: 3/8."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: 3/8."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 4 \u2014 Interpreting a bar chart (table given)"
+        },
+        {
+          "type": "p",
+          "text": "Suppose category counts are: A = 3, B = 5, C = 2."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Total = 3 + 5 + 2 = 10.",
+            "Largest category is B (5).",
+            "Percent of total for B: 5/10 = 50%."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answers: B is largest; B is 50% of the total."
+        },
+        {
+          "type": "h3",
+          "text": "Problem 5 \u2014 Slope from a line graph: points (1, 2) and (4, 8)"
+        },
+        {
+          "type": "ol",
+          "items": [
+            "Slope m = (y2 \u2212 y1) / (x2 \u2212 x1).",
+            "Compute: (8 \u2212 2) / (4 \u2212 1) = 6 / 3 = 2."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Answer: slope = 2 (the line rises 2 units for each 1 unit of run)."
+        }
+      ]
+    }
+  ]
+}

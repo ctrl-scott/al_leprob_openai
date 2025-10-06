@@ -1,0 +1,16 @@
+Science Practice — Sources (APA)
+
+OpenStax. (2019). Biology 2e. Rice University. https://openstax.org/details/books/biology-2e
+  — Scientific method basics; ecology and photosynthesis/respiration concepts used in passages.
+
+OpenStax. (2016). College Physics. Rice University. https://openstax.org/details/books/college-physics
+  — Units, measurement, slope as rate of change, density, and graph interpretation foundations.
+
+National Institute of Standards and Technology (NIST). (2019). Guide for the Use of the International System of Units (SI).
+  https://www.nist.gov/pml/owm/metric-si  — Units, prefixes, and significant figures conventions.
+
+Next Generation Science Standards (NGSS Lead States). (2013). Next Generation Science Standards: For States, By States.
+  https://www.nextgenscience.org/  — Science and Engineering Practices: analyzing and interpreting data; planning and carrying out investigations.
+
+Centers for Disease Control and Prevention (CDC). (2012). Principles of Epidemiology in Public Health Practice (3rd ed.).
+  https://www.cdc.gov/csels/dsepd/ss1978/index.html  — Study design concepts: correlation vs. causation, bias, and confounding.
