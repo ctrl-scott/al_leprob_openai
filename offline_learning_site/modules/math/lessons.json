@@ -1,52 +1,169 @@
 {
   "lessons": [
     {
-      "id": "arithmetic-1",
-      "title": "Addition and Subtraction",
-      "level": "Intro",
+      "id": "basic-arithmetic-1",
+      "title": "Basic Arithmetic — Fractions, Decimals, Percents",
+      "level": "Foundational - Shows full steps - no quizzes (yet)",
       "content": [
-        {
-          "type": "p",
-          "text": "Addition puts amounts together. Subtraction finds the difference."
-        },
-        {
-          "type": "code",
-          "code": "7 + 5 = 12\\n12 - 5 = 7"
-        }
-      ],
-      "quiz": {
-        "prompt": "What is 9 + 6?",
-        "choices": [
-          "13",
-          "14",
-          "15"
-        ],
-        "answer": 2
-      }
+        { "type": "h3", "text": "Problem 1 — Convert 3/4 to a decimal and a percent" },
+        { "type": "ol", "items": [
+          "Divide 3 by 4: 3 ÷ 4 = 0.75.",
+          "Convert to percent: 0.75 × 100 = 75%.",
+          "Answer: 0.75 and 75%."
+        ]},
+        { "type": "h3", "text": "Problem 2 — 5/6 + 1/4" },
+        { "type": "ol", "items": [
+          "Find a common denominator. LCM(6, 4) = 12.",
+          "Convert: 5/6 = 10/12; 1/4 = 3/12.",
+          "Add: 10/12 + 3/12 = 13/12 = 1 1/12.",
+          "Answer: 13/12 or 1 1/12."
+        ]},
+        { "type": "h3", "text": "Problem 3 — 12.5 − 3.78" },
+        { "type": "ol", "items": [
+          "Align decimals: 12.50 − 3.78.",
+          "Subtract hundredths: 0 − 8 requires borrowing → 10 − 8 = 2; borrow through the tenths.",
+          "Tenths: 4 − 7 requires borrowing → 14 − 7 = 7; units became 11 earlier.",
+          "Units: 11 − 3 = 8.",
+          "Answer: 8.72."
+        ]},
+        { "type": "h3", "text": "Problem 4 — Find 15% of 160" },
+        { "type": "ol", "items": [
+          "10% of 160 is 16.",
+          "5% of 160 is half of 10%: 8.",
+          "Add: 16 + 8 = 24.",
+          "Answer: 24."
+        ]},
+        { "type": "h3", "text": "Problem 5 — Convert 0.375 to a fraction in simplest form" },
+        { "type": "ol", "items": [
+          "Write as 375/1000.",
+          "Divide numerator and denominator by 125: 375 ÷ 125 = 3; 1000 ÷ 125 = 8.",
+          "Answer: 3/8."
+        ]}
+      ]
     },
     {
-      "id": "percent-1",
-      "title": "Percents in Daily Life",
+      "id": "algebra-1",
+      "title": "Algebra — Equations, Inequalities, Functions",
       "level": "Foundational",
       "content": [
-        {
-          "type": "p",
-          "text": "A percent is a fraction out of 100. For example, 25% equals 25 out of 100."
-        },
-        {
-          "type": "p",
-          "text": "To find 10% of a number, move the decimal one place to the left."
-        }
-      ],
-      "quiz": {
-        "prompt": "10% of 80 is:",
-        "choices": [
-          "8",
-          "10",
-          "12"
-        ],
-        "answer": 0
-      }
+        { "type": "h3", "text": "Problem 1 — Solve 2x + 7 = 25" },
+        { "type": "ol", "items": [
+          "Subtract 7 from both sides: 2x = 18.",
+          "Divide both sides by 2: x = 9.",
+          "Answer: x = 9."
+        ]},
+        { "type": "h3", "text": "Problem 2 — Solve 3(x − 2) = 18" },
+        { "type": "ol", "items": [
+          "Divide both sides by 3: x − 2 = 6.",
+          "Add 2 to both sides: x = 8.",
+          "Answer: x = 8."
+        ]},
+        { "type": "h3", "text": "Problem 3 — Solve the inequality 5x − 9 < 16" },
+        { "type": "ol", "items": [
+          "Add 9 to both sides: 5x < 25.",
+          "Divide by 5: x < 5.",
+          "Answer: x < 5."
+        ]},
+        { "type": "h3", "text": "Problem 4 — Evaluate f(x) = 2x^2 − 3x + 1 at x = 3" },
+        { "type": "ol", "items": [
+          "Compute x^2: 3^2 = 9.",
+          "Calculate 2x^2: 2 × 9 = 18.",
+          "Compute 3x: 3 × 3 = 9.",
+          "Evaluate: 18 − 9 + 1 = 10.",
+          "Answer: f(3) = 10."
+        ]},
+        { "type": "h3", "text": "Problem 5 — Find the equation of the line through (1, 4) and (3, 10)" },
+        { "type": "ol", "items": [
+          "Slope: m = (10 − 4) / (3 − 1) = 6 / 2 = 3.",
+          "Use y = mx + b with point (1, 4): 4 = 3(1) + b → b = 1.",
+          "Equation: y = 3x + 1.",
+          "Answer: y = 3x + 1."
+        ]}
+      ]
+    },
+    {
+      "id": "geometry-1",
+      "title": "Geometry — Area, Volume, Surface Area",
+      "level": "Foundational",
+      "content": [
+        { "type": "h3", "text": "Problem 1 — Area of a triangle with base 12 cm and height 9 cm" },
+        { "type": "ol", "items": [
+          "Formula: A = 1/2 × b × h.",
+          "Compute: 1/2 × 12 × 9 = 6 × 9 = 54.",
+          "Answer: 54 cm^2."
+        ]},
+        { "type": "h3", "text": "Problem 2 — Area of a circle with radius 7 cm (use π ≈ 3.14)" },
+        { "type": "ol", "items": [
+          "Formula: A = πr^2.",
+          "Compute r^2: 7^2 = 49.",
+          "Multiply: 3.14 × 49 = 153.86.",
+          "Answer: approximately 153.86 cm^2."
+        ]},
+        { "type": "h3", "text": "Problem 3 — Volume of a rectangular prism 4 cm × 5 cm × 6 cm" },
+        { "type": "ol", "items": [
+          "Formula: V = l × w × h.",
+          "Compute: 4 × 5 × 6 = 120.",
+          "Answer: 120 cm^3."
+        ]},
+        { "type": "h3", "text": "Problem 4 — Volume of a cylinder with radius 3 cm and height 10 cm (π ≈ 3.14)" },
+        { "type": "ol", "items": [
+          "Formula: V = πr^2h.",
+          "Compute r^2: 3^2 = 9.",
+          "Multiply: 3.14 × 9 × 10 = 282.6.",
+          "Answer: approximately 282.6 cm^3."
+        ]},
+        { "type": "h3", "text": "Problem 5 — Surface area of a cube with edge length 5 cm" },
+        { "type": "ol", "items": [
+          "Formula: SA = 6a^2.",
+          "Compute a^2: 5^2 = 25.",
+          "Multiply: 6 × 25 = 150.",
+          "Answer: 150 cm^2."
+        ]}
+      ]
+    },
+    {
+      "id": "data-analysis-1",
+      "title": "Data Analysis — Statistics, Probability, Graphs",
+      "level": "Foundational",
+      "content": [
+        { "type": "h3", "text": "Problem 1 — Mean, median, mode of [3, 7, 7, 9, 10]" },
+        { "type": "ol", "items": [
+          "Mean: (3 + 7 + 7 + 9 + 10) / 5 = 36 / 5 = 7.2.",
+          "Median: middle value when ordered is 7.",
+          "Mode: 7 occurs most often.",
+          "Answer: mean 7.2, median 7, mode 7."
+        ]},
+        { "type": "h3", "text": "Problem 2 — Range of [12, 5, 9, 15, 8]" },
+        { "type": "ol", "items": [
+          "Minimum is 5; maximum is 15.",
+          "Range = max − min = 15 − 5 = 10.",
+          "Answer: 10."
+        ]},
+        { "type": "h3", "text": "Problem 3 — Probability of not green" },
+        { "type": "p", "text": "A bag has 5 red, 3 blue, and 2 green marbles. One marble is drawn at random." },
+        { "type": "ol", "items": [
+          "Total marbles: 5 + 3 + 2 = 10.",
+          "Probability of green: 2/10.",
+          "Probability of not green: 1 − 2/10 = 8/10 = 4/5.",
+          "Answer: 4/5."
+        ]},
+        { "type": "h3", "text": "Problem 4 — Two coin tosses: probability of exactly one head" },
+        { "type": "ol", "items": [
+          "Outcomes: HH, HT, TH, TT (4 equally likely).",
+          "Exactly one head: HT or TH (2 outcomes).",
+          "Probability = 2/4 = 1/2.",
+          "Answer: 1/2."
+        ]},
+        { "type": "h3", "text": "Problem 5 — Is the relationship linear? Find slope and equation" },
+        { "type": "p", "text": "Table of points: (0, 2), (1, 5), (2, 8), (3, 11). Sketch by hand if desired." },
+        { "type": "ol", "items": [
+          "Check differences in y: +3 each time as x increases by 1 → constant rate of change.",
+          "Slope m = 3.",
+          "When x = 0, y = 2, so the y-intercept b = 2.",
+          "Equation: y = 3x + 2.",
+          "Answer: Linear with slope 3; equation y = 3x + 2."
+        ]}
+      ]
     }
   ]
 }
