@@ -153,6 +153,7 @@
   function renderBlocks(blocks) {
     if (!Array.isArray(blocks)) return "";
     return blocks.map(b => {
+	  if (b.type === "a") return renderLink(b);
       if (b.type === "p") return `<p>${escapeHtml(b.text)}</p>`;
       if (b.type === "ul") return `<ul>${b.items.map(it => `<li>${escapeHtml(it)}</li>`).join("")}</ul>`;
       if (b.type === "ol") return `<ol>${b.items.map(it => `<li>${escapeHtml(it)}</li>`).join("")}</ol>`;
@@ -330,5 +331,26 @@
       .replaceAll('"', "&quot;")
       .replaceAll("'", "&#039;");
   }
+
+  // Escapes content for attribute contexts like href="..."
+  function escapeAttr(str) {
+    return String(str)
+      .replaceAll("&", "&amp;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll("'", "&#039;");
+  }
+
+  // Renders a safe link element using lesson block fields
+  function renderLink(b) {
+    const href = b && b.href ? escapeAttr(b.href) : "#";
+    const download = b && b.download ? " download" : "";
+    const target = b && b.newTab ? ' target="_blank" rel="noopener"' : "";
+    const label = b && b.text ? escapeHtml(b.text) : href;
+    return `<p><a href="${href}"${download}${target}>${label}</a></p>`;
+  }
+
+
 
 })();

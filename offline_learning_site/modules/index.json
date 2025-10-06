@@ -30,6 +30,16 @@
         "safety"
       ],
       "lesson_count": 2
+    },
+    {
+      "id": "public_domain_works",
+      "title": "Public Domain Works",
+      "description": "Published works (e.g. books) within the public domain.",
+      "tags": [
+        "reading",
+        "comprehension"
+      ],
+      "lesson_count": 2
     }
   ]
 }

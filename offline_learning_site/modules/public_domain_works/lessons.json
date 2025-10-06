@@ -1,0 +1,18 @@
+{
+  "lessons": [
+    {
+      "id": "public-work",
+      "title": "Dante's Inferno",
+      "level": "NonIntro",
+      "content": [
+        {
+          "type": "a",
+          "text": "Read: Dante — The Divine Comedy (plain text)",
+          "href": "pdworks/Dantes_inferno_pg8800.txt",
+          "download": false,
+          "newTab": true
+        }
+      ]
+    }
+  ]
+}
