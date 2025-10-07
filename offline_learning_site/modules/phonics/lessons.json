@@ -34,6 +34,7 @@
              "examples": [
                { "word": "b", "audio": "assets/audio/phonics/b.ogg" },
                { "word": "bat", "audio": "assets/audio/phonics/b_bat.ogg" },
+			   { "word": "bat", "audio": "assets/audio/phonics/b_bat_.mp3" },
                { "word": "boat", "audio": "assets/audio/phonics/b_boat.ogg" }
              ],
              "minimalPairs": [

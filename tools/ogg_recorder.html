@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OGG Voice Recorder (Offline)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; line-height: 1.4; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
+    button { padding: .6rem 1rem; border: 1px solid #ccc; border-radius: .5rem; background: #f6f6f6; cursor: pointer; }
+    button[disabled] { opacity: .5; cursor: not-allowed; }
+    #status { font-weight: 600; }
+    audio { width: 100%; margin-top: .75rem; }
+    .note { color: #555; font-size: .95rem; }
+    .chip { display: inline-block; border: 1px solid #ddd; padding: .15rem .5rem; border-radius: 999px; margin-right: .35rem; }
+  </style>
+</head>
+<body>
+  <h1>OGG Voice Recorder (Opus)</h1>
+  <p class="note">
+    Targets low-resource settings: <span class="chip">mono</span><span class="chip">~16 kHz</span><span class="chip">~24 kbps</span>.
+    For best results and native <code>.ogg</code> output, use <strong>Firefox</strong>.
+  </p>
+
+  <div class="row">
+    <button id="btnInit">Enable Mic</button>
+    <button id="btnStart" disabled>Start</button>
+    <button id="btnStop" disabled>Stop</button>
+    <span id="status">Idle</span>
+  </div>
+
+  <div id="clips"></div>
+
+  <script>
+    let mediaStream = null;
+    let recorder = null;
+    let chunks = [];
+    let startTime = 0;
+    let timerId = null;
+
+    const btnInit  = document.getElementById('btnInit');
+    const btnStart = document.getElementById('btnStart');
+    const btnStop  = document.getElementById('btnStop');
+    const statusEl = document.getElementById('status');
+    const clipsEl  = document.getElementById('clips');
+
+    function updateStatus(txt) { statusEl.textContent = txt; }
+
+    function supportedMime() {
+      // Prefer OGG Opus, fall back to WebM Opus if needed
+      const ogg = 'audio/ogg; codecs=opus';
+      const webm = 'audio/webm; codecs=opus';
+      if (MediaRecorder.isTypeSupported(ogg)) return ogg;
+      if (MediaRecorder.isTypeSupported('audio/ogg')) return 'audio/ogg';
+      if (MediaRecorder.isTypeSupported(webm)) return webm;
+      return ''; // Let browser decide or throw
+    }
+
+    async function initMic() {
+      try {
+        // Ask for mono, lower rate target. Browsers may override sampleRate.
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            channelCount: 1,
+            noiseSuppression: true,
+            echoCancellation: true,
+            autoGainControl: true,
+            sampleRate: 16000 // hint; Opus internally uses 48 kHz
+          }
+        });
+        btnStart.disabled = false;
+        btnInit.disabled = true;
+        updateStatus('Mic enabled. Ready.');
+      } catch (err) {
+        console.error(err);
+        updateStatus('Microphone permission denied or unavailable.');
+      }
+    }
+
+    function startTimer() {
+      startTime = Date.now();
+      timerId = setInterval(() => {
+        const secs = Math.floor((Date.now() - startTime) / 1000);
+        updateStatus('Recording… ' + secs + 's');
+      }, 500);
+    }
+
+    function stopTimer() {
+      if (timerId) { clearInterval(timerId); timerId = null; }
+    }
+
+    function startRec() {
+      if (!mediaStream) return;
+      chunks = [];
+      const mimeType = supportedMime();
+      try {
+        recorder = new MediaRecorder(mediaStream, {
+          mimeType: mimeType || undefined,
+          // Bits per second target for low-resource speech capture:
+          // ~24 kbps audio; MediaRecorder may not honor exactly, but it helps.
+          audioBitsPerSecond: 24000,
+          bitsPerSecond: 24000
+        });
+      } catch (e) {
+        console.error(e);
+        updateStatus('Cannot start recorder (codec unsupported). Try Firefox.');
+        return;
+      }
+
+      recorder.ondataavailable = e => { if (e.data && e.data.size > 0) chunks.push(e.data); };
+      recorder.onstart = () => { startTimer(); };
+      recorder.onstop = () => {
+        stopTimer();
+        const blob = new Blob(chunks, { type: recorder.mimeType || 'audio/ogg' });
+        const url  = URL.createObjectURL(blob);
+
+        const wrapper = document.createElement('div');
+        const a = document.createElement('audio');
+        a.controls = true;
+        a.src = url;
+
+        const meta = document.createElement('div');
+        meta.className = 'note';
+
+        const ext = (blob.type.includes('ogg')) ? 'ogg' :
+                    (blob.type.includes('webm') ? 'webm' : 'ogg');
+
+        const filename = `recording_${new Date().toISOString().replace(/[:.]/g,'-')}.${ext}`;
+
+        const save = document.createElement('a');
+        save.href = url;
+        save.download = filename;
+        save.textContent = `Download ${filename}`;
+
+        meta.textContent = `Type: ${blob.type || 'unknown'}, Size: ${(blob.size/1024).toFixed(1)} KB`;
+        wrapper.appendChild(a);
+        wrapper.appendChild(document.createElement('br'));
+        wrapper.appendChild(save);
+        wrapper.appendChild(document.createElement('br'));
+        wrapper.appendChild(meta);
+        clipsEl.prepend(wrapper);
+
+        updateStatus('Idle');
+      };
+
+      recorder.start(); // starts collecting data
+      btnStart.disabled = true;
+      btnStop.disabled = false;
+      updateStatus('Recording…');
+    }
+
+    function stopRec() {
+      if (recorder && recorder.state !== 'inactive') {
+        recorder.stop();
+        btnStop.disabled = true;
+        btnStart.disabled = false;
+      }
+    }
+
+    btnInit.addEventListener('click', initMic);
+    btnStart.addEventListener('click', startRec);
+    btnStop.addEventListener('click', stopRec);
+  </script>
+</body>
+</html>
