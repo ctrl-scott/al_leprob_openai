@@ -19,8 +19,13 @@
             { "pair": ["mat", "bat"], "audioA": "assets/audio/phonics/m_mat.ogg", "audioB": "assets/audio/phonics/b_bat.ogg" }
           ]
         }
-      ]
-    },
+      ],
+    "quiz": {
+  "prompt": "Which word begins with the /m/ sound?",
+  "choices": ["bat", "mat", "sun"],
+  "answer": 1
+    }
+  },
     {
          "id": "phonics-b",
          "title": "Phonics: /b/",
@@ -41,7 +46,12 @@
                { "pair": ["bat", "pat"], "audioA": "assets/audio/phonics/b_bat.ogg", "audioB": "assets/audio/phonics/p_pat.ogg" }
              ]
            }
-         ]
+         ],
+             "quiz": {
+  "prompt": "Which word begins with the /b/ sound?",
+  "choices": ["mat", "cat", "bat"],
+  "answer": 2
+    }
        },
        {
          "id": "phonics-p",
@@ -62,7 +72,12 @@
                { "pair": ["pat", "bat"], "audioA": "assets/audio/phonics/p_pat.ogg", "audioB": "assets/audio/phonics/b_bat.ogg" }
              ]
            }
-         ]
+         ],
+           "quiz": {
+  "prompt": "Which word begins with the /p/ sound?",
+  "choices": ["mat", "pat", "bat"],
+  "answer": 1
+    }
        },
        {
          "id": "phonics-t",

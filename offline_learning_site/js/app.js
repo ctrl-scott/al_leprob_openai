@@ -290,7 +290,8 @@
 
   function renderQuiz(lesson) {
     const area = document.querySelector(SELECTORS.quizArea);
-    const q = lesson.quiz;
+    const q = lesson.quiz || (Array.isArray(lesson.quizzes) ? lesson.quizzes[0] : null);
+	//const q = lesson.quiz;
     if (!q) { area.innerHTML = ""; return; }
     const userAns = getAnswer(STATE.currentModule.id, lesson.id);
     area.innerHTML = `

@@ -6,7 +6,29 @@
       "level": "Foundational",
       "content": [
         { "type": "numberline", "min": 0, "max": 10, "tickEvery": 1, "target": 7, "showTargetLabel": true }
-      ]
+      ],
+      "quiz": {
+        "prompt": "On a number line from 0 to 10, where is the number 7?",
+        "choices": [
+          "At the tick labeled 7",
+          "Between 6 and 7",
+          "Between 7 and 8"
+        ],
+        "answer": 0
+      }
+    },
+    {
+      "id": "count-on-from-7",
+      "title": "Count On From 7",
+      "level": "Foundational",
+      "content": [
+        { "type": "numberline", "min": 0, "max": 10, "tickEvery": 1, "target": 7, "showTargetLabel": true }
+      ],
+      "quiz": {
+        "prompt": "How many more do you need to get from 7 to 10?",
+        "choices": ["2", "3", "4"],
+        "answer": 1
+      }
     }
   ]
 }
