@@ -5,7 +5,7 @@
 #
 # Examples:
 #   ./traverse_tree.sh /home/username/projects/myproject --dirs-only --out=myproject_tree.txt
-
+# https://chatgpt.com/share/68e508d0-4328-800c-a333-925e4b99908b
 set -euo pipefail
 
 root_dir="${1:-}"
