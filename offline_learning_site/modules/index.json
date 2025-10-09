@@ -1,109 +1,76 @@
 {
   "modules": [
     {
+      "id": "digital_literacy",
+      "title": "Digital Literacy",
+      "description": "Basics of devices, apps, files, and staying safe online.",
+      "tags": ["digital", "devices", "safety"],
+      "lesson_count": 4,
+      "materials": true
+    },
+    {
       "id": "english",
-      "title": "English Basics",
-      "description": "Reading, writing, and grammar essentials.",
-      "tags": [
-        "language",
-        "reading",
-        "writing"
-      ],
-      "lesson_count": 2
-    },
-    {
-      "id": "social_studies",
-      "title": "Social Studies",
-      "description": "Social Studies is the integrated study of human society.",
-      "tags": [
-        "social studies",
-        "history",
-        "geography",
-		"economics",
-		"civics",
-		"psychology"
-      ],
-      "lesson_count": 2
-    },
-    {
-      "id": "science",
-      "title": "Science",
-      "description": "Science is the systematic study of the natural world & is characterized by its reliance on evidence.",
-      "tags": [
-        "science",
-        "experimentation",
-        "hypotheses",
-		"study",
-		"observation"
-      ],
-      "lesson_count": 2
+      "title": "English",
+      "description": "Reading and writing practice with short texts.",
+      "tags": ["reading", "writing", "grammar"],
+      "lesson_count": 3,
+      "materials": true
     },
     {
       "id": "math",
-      "title": "Everyday Math",
-      "description": "Practical arithmetic and problem solving.",
-      "tags": [
-        "numeracy",
-        "arithmetic"
-      ],
-      "lesson_count": 2
-    },
-    {
-      "id": "digital_literacy",
-      "title": "Digital Literacy",
-      "description": "Understanding computers and staying safe.",
-      "tags": [
-        "computers",
-        "safety"
-      ],
-      "lesson_count": 2
-    },
-    {
-      "id": "public_domain_works",
-      "title": "Public Domain Works",
-      "description": "Published works (e.g. books) within the public domain.",
-      "tags": [
-        "reading",
-        "comprehension"
-      ],
-      "lesson_count": 2
-    },
-    {
-      "id": "shapes",
-      "title": "Shapes",
-      "description": "Such as a Triangle",
-      "tags": [
-        "Remediation",
-        "Shapes",
-        "Triangles",
-		"Counting"
-      ],
-      "lesson_count": 2
+      "title": "Math",
+      "description": "Number sense and basic operations.",
+      "tags": ["arithmetic", "practice"],
+      "lesson_count": 2,
+      "materials": true
     },
     {
       "id": "numberline",
       "title": "Number Line",
-      "description": "Number Line",
-      "tags": [
-        "Remediation",
-        "Foundational",
-        "Number Line",
-		"Counting"
-      ],
-      "lesson_count": 2
+      "description": "Visual number line practice (0–10, 0–20).",
+      "tags": ["math", "visual", "counting"],
+      "lesson_count": 2,
+      "materials": true
     },
     {
       "id": "phonics",
-      "title": "Phonics:  Sound",
-      "description": "Phonics: Sound",
-      "tags": [
-        "Remediation",
-        "Foundational",
-        "Phonics",
-		"Sound",
-		"Hearing"
-      ],
-      "lesson_count": 2
+      "title": "Phonics",
+      "description": "Letter–sound practice with simple audio examples.",
+      "tags": ["reading", "letters", "sound"],
+      "lesson_count": 3,
+      "materials": true
+    },
+    {
+      "id": "public_domain_works",
+      "title": "Public Domain Works",
+      "description": "Classic texts (plain text) for reading practice.",
+      "tags": ["reading", "classics", "text"],
+      "lesson_count": 1,
+      "materials": true
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "description": "Observations, simple diagrams, and core ideas.",
+      "tags": ["science", "diagrams"],
+      "lesson_count": 2,
+      "materials": true
+    },
+    {
+      "id": "shapes",
+      "title": "Shapes",
+      "description": "Recognize and name basic geometric shapes.",
+      "tags": ["geometry", "visual"],
+      "lesson_count": 2,
+      "materials": true
+    },
+    {
+      "id": "social_studies",
+      "title": "Social Studies",
+      "description": "Civics, history, geography practice sets.",
+      "tags": ["civics", "history", "geography"],
+      "lesson_count": 2,
+      "materials": true
     }
   ]
 }

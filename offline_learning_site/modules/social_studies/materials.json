@@ -1,0 +1,149 @@
+{
+  "materials": [
+    {
+      "id": "constitution",
+      "title": "The U.S. Constitution (Overview)",
+      "content": [
+        { "type": "h3", "text": "What it is" },
+        { "type": "p",  "text": "The Constitution is the supreme law of the land. It creates the framework for the federal government and protects certain rights." },
+        { "type": "ul", "items": [
+          "Written in 1787; ratified by the states",
+          "Creates three branches: Legislative, Executive, Judicial",
+          "Includes the Bill of Rights (first 10 amendments)"
+        ]},
+        { "type": "a",  "text": "Plain-text excerpt (Article VI)", "href": "assets/text/constitution_excerpt.txt", "newTab": true }
+      ]
+    },
+    {
+      "id": "bill_of_rights",
+      "title": "Bill of Rights (First 10 Amendments)",
+      "content": [
+        { "type": "p", "text": "These amendments protect individual freedoms such as speech, religion, press, assembly, and due process." },
+        { "type": "ul", "items": [
+          "1st: Freedoms of speech, religion, press, assembly, petition",
+          "4th: Protection from unreasonable searches and seizures",
+          "5th: Due process; protection against self-incrimination",
+          "6th: Fair and speedy public trial",
+          "10th: Powers not given to the federal government are reserved to the states or the people"
+        ]},
+        { "type": "a", "text": "Bill of Rights (plain text)", "href": "assets/text/bill_of_rights.txt", "newTab": true }
+      ]
+    },
+    {
+      "id": "branches_of_government",
+      "title": "Three Branches of Government",
+      "content": [
+        { "type": "h3", "text": "Legislative (Congress)" },
+        { "type": "p", "text": "Makes laws. Congress has two parts: the Senate and the House of Representatives." },
+        { "type": "h3", "text": "Executive" },
+        { "type": "p", "text": "Enforces laws. Led by the President; includes the Vice President and the Cabinet." },
+        { "type": "h3", "text": "Judicial" },
+        { "type": "p", "text": "Interprets laws. The Supreme Court and other federal courts." }
+      ]
+    },
+    {
+      "id": "how_a_bill_becomes_law",
+      "title": "How a Bill Becomes a Law (Simple Steps)",
+      "content": [
+        { "type": "ol", "items": [
+          "A member of Congress introduces a bill.",
+          "A committee studies, revises, and votes on it.",
+          "The full chamber debates and votes.",
+          "The other chamber repeats the process.",
+          "Both chambers pass the same version.",
+          "The President signs it (or vetoes; Congress can override with enough votes)."
+        ]}
+      ]
+    },
+    {
+      "id": "federal_state_local",
+      "title": "Federal vs. State vs. Local",
+      "content": [
+        { "type": "ul", "items": [
+          "Federal: national defense, foreign policy, money supply.",
+          "State: education standards, driver licensing, many public health rules.",
+          "Local (city/county): policing, fire services, local roads, libraries, parks."
+        ]}
+      ]
+    },
+    {
+      "id": "us_regions",
+      "title": "U.S. Regions (Basic)",
+      "content": [
+        { "type": "p", "text": "Common regions include Northeast, South, Midwest, and West." },
+        { "type": "ul", "items": [
+          "Northeast: Maine to Pennsylvania",
+          "South: Florida to Texas and up to Kentucky",
+          "Midwest: Ohio to the Dakotas",
+          "West: Rockies to the Pacific Coast, plus Alaska and Hawaii"
+        ]}
+      ]
+    },
+    {
+      "id": "map_reading_basics",
+      "title": "Map Reading Basics",
+      "content": [
+        { "type": "ul", "items": [
+          "Compass directions: North, South, East, West",
+          "Legend/Key: explains symbols",
+          "Scale: turns map distance into real distance (e.g., 1 inch = 10 miles)"
+        ]},
+        { "type": "p", "text": "Tip: If the map has no compass, assume the top is north." }
+      ]
+    },
+    {
+      "id": "timeline_foundations",
+      "title": "U.S. Timeline: Foundations to Modern",
+      "content": [
+        { "type": "ol", "items": [
+          "1776: Declaration of Independence",
+          "1787: Constitutional Convention",
+          "1861–1865: Civil War",
+          "1929: Start of the Great Depression",
+          "1941–1945: U.S. in World War II",
+          "1964: Civil Rights Act",
+          "1969: Moon landing",
+          "2001: September 11 attacks"
+        ]}
+      ]
+    },
+    {
+      "id": "civic_duties_responsibilities",
+      "title": "Civic Duties and Responsibilities",
+      "content": [
+        { "type": "ul", "items": [
+          "Obey the law; pay taxes.",
+          "Serve on a jury if called.",
+          "Vote in elections and stay informed.",
+          "Respect the rights and property of others.",
+          "Participate in community problem-solving."
+        ]}
+      ]
+    },
+    {
+      "id": "voting_basics",
+      "title": "Voting Basics (General)",
+      "content": [
+        { "type": "ul", "items": [
+          "Eligibility depends on age, citizenship, and state rules.",
+          "Register before the deadline (varies by state).",
+          "You can vote in person or by approved mail methods (rules vary).",
+          "Your vote is private."
+        ]},
+        { "type": "p", "text": "Check local (state) rules for specifics. In this offline app, ask a trusted facilitator for current info." }
+      ]
+    },
+    {
+      "id": "economics_needs_wants",
+      "title": "Economics: Needs vs. Wants; Goods vs. Services",
+      "content": [
+        { "type": "ul", "items": [
+          "Needs: things required to live (food, water, shelter).",
+          "Wants: nice to have (toys, entertainment).",
+          "Goods: physical items you can touch.",
+          "Services: actions someone does for you (haircut, bus ride)."
+        ]}
+      ]
+    }
+  ]
+}

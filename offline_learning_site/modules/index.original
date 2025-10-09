@@ -1,0 +1,109 @@
+{
+  "modules": [
+    {
+      "id": "english",
+      "title": "English Basics",
+      "description": "Reading, writing, and grammar essentials.",
+      "tags": [
+        "language",
+        "reading",
+        "writing"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "social_studies",
+      "title": "Social Studies",
+      "description": "Social Studies is the integrated study of human society.",
+      "tags": [
+        "social studies",
+        "history",
+        "geography",
+		"economics",
+		"civics",
+		"psychology"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "science",
+      "title": "Science",
+      "description": "Science is the systematic study of the natural world & is characterized by its reliance on evidence.",
+      "tags": [
+        "science",
+        "experimentation",
+        "hypotheses",
+		"study",
+		"observation"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "math",
+      "title": "Everyday Math",
+      "description": "Practical arithmetic and problem solving.",
+      "tags": [
+        "numeracy",
+        "arithmetic"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "digital_literacy",
+      "title": "Digital Literacy",
+      "description": "Understanding computers and staying safe.",
+      "tags": [
+        "computers",
+        "safety"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "public_domain_works",
+      "title": "Public Domain Works",
+      "description": "Published works (e.g. books) within the public domain.",
+      "tags": [
+        "reading",
+        "comprehension"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "shapes",
+      "title": "Shapes",
+      "description": "Such as a Triangle",
+      "tags": [
+        "Remediation",
+        "Shapes",
+        "Triangles",
+		"Counting"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "numberline",
+      "title": "Number Line",
+      "description": "Number Line",
+      "tags": [
+        "Remediation",
+        "Foundational",
+        "Number Line",
+		"Counting"
+      ],
+      "lesson_count": 2
+    },
+    {
+      "id": "phonics",
+      "title": "Phonics:  Sound",
+      "description": "Phonics: Sound",
+      "tags": [
+        "Remediation",
+        "Foundational",
+        "Phonics",
+		"Sound",
+		"Hearing"
+      ],
+      "lesson_count": 2
+    }
+  ]
+}

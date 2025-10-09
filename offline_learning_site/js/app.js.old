@@ -1,7 +1,8 @@
 /* Offline Learning — Minimal JS controller
-   - No external dependencies
-   - All progress stored in localStorage under 'ol_progress'
-   - Designed for low-resource, offline environments
+   Notes:
+   - No external dependencies.
+   - All progress is stored in localStorage under the key 'ol_progress'.
+   - Strings and comments avoid contractions as requested.
 */
 
 (function () {
@@ -34,76 +35,14 @@
     return `<p><a href="${href}"${download}${target}>${label}</a></p>`;
   }
 
-  // Try to find a material by id in either cache shape
-function findMaterialBlocksFromCache(moduleId, materialId) {
-  if (!materialId) return null;
-
-  // A) lessons.json root dictionary: STATE.moduleMaterials[moduleId] = { id: [blocks] }
-  const dict = STATE.moduleMaterials?.[moduleId];
-  if (dict && dict[materialId]) return dict[materialId];
-
-  // B) materials.json list: STATE.moduleMaterialsList[moduleId] = [ {id,title,content[]} ]
-  const list = STATE.moduleMaterialsList?.[moduleId];
-  if (Array.isArray(list)) {
-    const hit = list.find(x => x.id === materialId);
-    if (hit && Array.isArray(hit.content)) return hit.content;
-  }
-  return null;
-}
-
-// Ensure materials.json is loaded once if we need it
-async function ensureMaterialsLoaded(moduleId) {
-  if (Array.isArray(STATE.moduleMaterialsList?.[moduleId])) return; // already have list
-  try {
-    const res = await fetch(`modules/${moduleId}/materials.json`);
-    if (res.ok) {
-      const data = await res.json();
-      STATE.moduleMaterialsList[moduleId] = Array.isArray(data.materials) ? data.materials : [];
-    }
-  } catch (e) {
-    // swallow; optional file
-  }
-}
-
-// Resolve blocks for materialId (lessons.json dict first, then materials.json list)
-async function getMaterialBlocks(moduleId, materialId) {
-  let blocks = findMaterialBlocksFromCache(moduleId, materialId);
-  if (blocks) return blocks;
-  // lazy-load materials.json if not present, then retry
-  await ensureMaterialsLoaded(moduleId);
-  blocks = findMaterialBlocksFromCache(moduleId, materialId);
-  return blocks;
-}
-
-async function revealExplanation(q, areaEl) {
-  const ea = areaEl.querySelector("#quiz-explain-area");
-  if (!ea) return;
-
-  let html = "";
-  if (q.explanation) html += `<p>${escapeHtml(q.explanation)}</p>`;
-  if (q.explanationBlocks) html += renderBlocks(q.explanationBlocks);
-
-  if (q.materialId) {
-    const modId = STATE.currentModule.id;
-    const blocks = await getMaterialBlocks(modId, q.materialId);
-    if (blocks && blocks.length) {
-      html += renderBlocks(blocks);
-    } else {
-      html += `<p class="note">Reference material not found.</p>`;
-    }
-  }
-
-  ea.innerHTML = html || `<p class="note">Review the lesson above.</p>`;
-  ea.hidden = false;
-}
-
-  // ---------- Extra content block renderers ----------
+  // ---------- Extra block renderers ----------
   function renderImg(b) {
     const alt = escapeAttr(b.alt || "");
     return `<p><img src="${escapeAttr(b.src)}" alt="${alt}" style="max-width:100%;height:auto"/></p>`;
   }
 
   function renderSvg(b) {
+    // external: hydrate later; inline: use markup
     if (b.src) return `<div class="svg-wrap" data-src="${escapeAttr(b.src)}"></div>`;
     return `<div class="svg-wrap">${b.markup || ""}</div>`;
   }
@@ -129,7 +68,7 @@ async function revealExplanation(q, areaEl) {
   function renderNumberLine(b) {
     const min = b.min ?? 0, max = b.max ?? 10, tickEvery = b.tickEvery ?? 1;
     const width = 300, height = 50, pad = 20;
-    const range = Math.max(1, max - min);
+    const range = Math.max(1, max - min); // guard for min==max
     const ticks = [];
     for (let v = min; v <= max; v += tickEvery) {
       const x = pad + ((v - min) / range) * (width - 2 * pad);
@@ -194,15 +133,12 @@ async function revealExplanation(q, areaEl) {
     modulesIndex: null,
     currentModule: null,
     currentLesson: null,
-    currentMaterial: null,
     progress: loadProgress(),
 
     // caches
     moduleLessons: {},            // moduleId -> [lessons]
     moduleQuizzesByLesson: {},    // moduleId -> { lessonId: [rootQuestions] }
-    quizIndexByLesson: {},        // moduleId -> { lessonId: number }
-    moduleMaterials: {},          // moduleId -> { materialId: [blocks] }  (optional, from lessons.json)
-    moduleMaterialsList: {}       // moduleId -> [ {id,title,content[]} ] (from materials.json)
+    quizIndexByLesson: {}         // moduleId -> { lessonId: number }
   };
 
   // ================== View switching / global clicks ==================
@@ -210,49 +146,46 @@ async function revealExplanation(q, areaEl) {
     const t = e.target;
 
     // View buttons
-    if (t.matches("[data-view]")) { showView(t.getAttribute("data-view")); return; }
-    if (t.id === "back-to-modules") { showView("modules"); return; }
+    if (t.matches("[data-view]")) {
+      const view = t.getAttribute("data-view");
+      showView(view);
+      return;
+    }
+    if (t.id === "back-to-modules") {
+      showView("modules");
+      return;
+    }
 
-    // Module card actions
-    if (t?.dataset?.action === "open-lessons" && t.dataset.module) { openModuleLessons(t.dataset.module); return; }
-    if (t?.dataset?.action === "open-materials" && t.dataset.module) { openModuleMaterials(t.dataset.module); return; }
+    // Open module
+    if (t && t.dataset && t.dataset.action === "open-module" && t.dataset.module) {
+      openModule(t.dataset.module);
+      return;
+    }
 
     // Lesson pagination
     if (t && t.id === "prev-lesson" && t.dataset.go) { goToLesson(t.dataset.go); return; }
     if (t && t.id === "next-lesson" && t.dataset.go) { goToLesson(t.dataset.go); return; }
 
-    // Materials pagination / switch
-    if (t && t.id === "prev-material" && t.dataset.go) { goToMaterial(t.dataset.go); return; }
-    if (t && t.id === "next-material" && t.dataset.go) { goToMaterial(t.dataset.go); return; }
-    if (t && t.id === "switch-to-lessons") { openModuleLessons(STATE.currentModule.id); return; }
-
     // Quiz pagination
     if (t && t.id === "quiz-prev") {
-      const modId = STATE.currentModule.id, lessonId = STATE.currentLesson.id;
+      const modId = STATE.currentModule.id;
+      const lessonId = STATE.currentLesson.id;
       const all = collectQuizzesForLesson(STATE.currentLesson);
       const i = getQuizIndex(modId, lessonId);
-      if (i > 0) { setQuizIndex(modId, lessonId, i - 1); renderQuiz(STATE.currentLesson); }
+      if (i > 0) {
+        setQuizIndex(modId, lessonId, i - 1);
+        renderQuiz(STATE.currentLesson);
+      }
       return;
     }
     if (t && t.id === "quiz-next") {
-      const modId = STATE.currentModule.id, lessonId = STATE.currentLesson.id;
+      const modId = STATE.currentModule.id;
+      const lessonId = STATE.currentLesson.id;
       const all = collectQuizzesForLesson(STATE.currentLesson);
       const i = getQuizIndex(modId, lessonId);
-      if (i < all.length - 1) { setQuizIndex(modId, lessonId, i + 1); renderQuiz(STATE.currentLesson); }
-      return;
-    }
-
-    // Internal material link scheme: href="#material:ID"
-    const a = t.closest && t.closest('a[href^="#material:"]');
-    if (a) {
-      e.preventDefault();
-      const id = a.getAttribute("href").slice("#material:".length + 1); // robust enough
-      // If we already loaded materials list, jump; else open materials then jump.
-      const list = STATE.moduleMaterialsList[STATE.currentModule.id];
-      if (Array.isArray(list) && list.length) {
-        goToMaterial(id);
-      } else {
-        openModuleMaterials(STATE.currentModule.id).then(() => goToMaterial(id));
+      if (i < all.length - 1) {
+        setQuizIndex(modId, lessonId, i + 1);
+        renderQuiz(STATE.currentLesson);
       }
       return;
     }
@@ -261,10 +194,10 @@ async function revealExplanation(q, areaEl) {
     if (t && t.id === "export-progress") {
       const blob = new Blob([JSON.stringify(STATE.progress, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
-      const a2 = document.createElement("a");
-      a2.href = url;
-      a2.download = "offline_learning_progress.json";
-      a2.click();
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "offline_learning_progress.json";
+      a.click();
       URL.revokeObjectURL(url);
       return;
     }
@@ -289,7 +222,7 @@ async function revealExplanation(q, areaEl) {
             alert("Progress imported successfully.");
             renderProgress();
           }
-        } catch {
+        } catch (err) {
           alert("Import failed. The file did not contain valid JSON.");
         }
       };
@@ -365,8 +298,7 @@ async function revealExplanation(q, areaEl) {
       <p>${escapeHtml(mod.description || "")}</p>
       <p class="note">Lessons: ${mod.lesson_count ?? "Unknown"}</p>
       <div style="display:flex; gap:.5rem; flex-wrap:wrap; margin-top:.25rem;">
-        <button class="btn small" data-action="open-lessons" data-module="${mod.id}">Lessons</button>
-        <button class="btn small" data-action="open-materials" data-module="${mod.id}">Materials</button>
+        <button class="btn small" data-action="open-module" data-module="${mod.id}">Open</button>
       </div>
     `;
     return card;
@@ -385,10 +317,7 @@ async function revealExplanation(q, areaEl) {
     return map;
   }
 
-  // ---------- Openers (Lessons / Materials) ----------
-  async function openModule(moduleId) { return openModuleLessons(moduleId); }
-
-  async function openModuleLessons(moduleId) {
+  async function openModule(moduleId) {
     const mod = (STATE.modulesIndex.modules || []).find(m => m.id === moduleId);
     if (!mod) return;
     STATE.currentModule = mod;
@@ -400,7 +329,6 @@ async function revealExplanation(q, areaEl) {
       STATE.moduleLessons[moduleId] = lessons;
 
       STATE.moduleQuizzesByLesson[moduleId] = buildQuizMap(data.quizzes || []);
-      STATE.moduleMaterials[moduleId] = data.materials || {}; // optional dictionary inside lessons.json
 
       if (lessons.length) {
         renderLesson(lessons[0], lessons);
@@ -414,39 +342,10 @@ async function revealExplanation(q, areaEl) {
     }
   }
 
-  async function openModuleMaterials(moduleId) {
-    const mod = (STATE.modulesIndex.modules || []).find(m => m.id === moduleId);
-    if (!mod) return;
-    STATE.currentModule = mod;
-    try {
-      const res = await fetch(`modules/${moduleId}/materials.json`);
-      if (!res.ok) {
-        alert("No materials file found for this module.");
-        return;
-      }
-      const data = await res.json();
-      const items = Array.isArray(data.materials) ? data.materials : [];
-      STATE.moduleMaterialsList[moduleId] = items;
-
-      if (items.length) {
-        renderMaterial(items[0], items);
-      } else {
-        alert("This module has an empty materials list.");
-      }
-      showView("lesson");
-    } catch (err) {
-      console.error("Failed to load materials:", err);
-      alert("Could not load materials for this module.");
-    }
-  }
-
-  // ---------- Render Lesson ----------
   function renderLesson(lesson, collection) {
     STATE.currentLesson = lesson;
-    STATE.currentMaterial = null;
     const el = document.querySelector(SELECTORS.lessonArticle);
     if (!el) return;
-
     el.innerHTML = `
       <header>
         <h2>${escapeHtml(lesson.title)}</h2>
@@ -458,14 +357,14 @@ async function revealExplanation(q, areaEl) {
       </nav>
     `;
 
-    // Initialize quiz cursor
+    // Initialize quiz index for this lesson if missing
     const modId = STATE.currentModule.id;
     if (STATE.quizIndexByLesson?.[modId]?.[lesson.id] == null) {
       setQuizIndex(modId, lesson.id, 0);
     }
 
-    hydrateSvg();
-    renderQuiz(lesson);
+    hydrateSvg();       // hydrate any external SVGs
+    renderQuiz(lesson); // draw quiz
     markVisited(STATE.currentModule.id, lesson.id);
   }
 
@@ -510,70 +409,15 @@ async function revealExplanation(q, areaEl) {
     }
   }
 
-  // ---------- Render Materials ----------
-  function renderMaterial(material, collection) {
-    STATE.currentMaterial = material;
-    STATE.currentLesson = null;
-    const el = document.querySelector(SELECTORS.lessonArticle);
-    if (!el) return;
-
-    el.innerHTML = `
-      <header>
-        <h2>${escapeHtml(material.title || "Material")}</h2>
-        <p class="meta">Module: ${escapeHtml(STATE.currentModule.title)} — Materials</p>
-      </header>
-      <section class="content">${renderBlocks(material.content || [])}</section>
-      <nav class="lesson-nav">
-        ${renderMaterialNav(material, collection)}
-      </nav>
-    `;
-
-    hydrateSvg();
-    // Materials view does not render a quiz
-    const qArea = document.querySelector(SELECTORS.quizArea);
-    if (qArea) qArea.innerHTML = "";
-  }
-
-  function renderMaterialNav(current, collection) {
-    const idx = collection.findIndex(x => x.id === current.id);
-    const prev = idx > 0 ? collection[idx - 1] : null;
-    const next = idx < collection.length - 1 ? collection[idx + 1] : null;
-    return `
-      <div style="display:flex; gap:.5rem; margin-top:.5rem; flex-wrap:wrap;">
-        <button class="btn small" ${prev ? "" : "disabled"} data-go="${prev ? prev.id : ""}" id="prev-material">Previous</button>
-        <button class="btn small" ${next ? "" : "disabled"} data-go="${next ? next.id : ""}" id="next-material">Next</button>
-        <button class="btn small" id="switch-to-lessons">Go to Lessons</button>
-      </div>
-    `;
-  }
-
-  function goToMaterial(materialId) {
-    try {
-      const list = STATE.moduleMaterialsList[STATE.currentModule.id] || [];
-      const target = list.find(x => x.id === materialId);
-      if (target) renderMaterial(target, list);
-    } catch (err) {
-      console.error("Material navigation failed:", err);
-    }
-  }
-
   // ---------- Quiz adapters / pagination ----------
-// Accepts {prompt|question|text, choices|options|answers, answer|answerIndex}
-// Plus optional: hint, explanation, explanationBlocks[], materialId
-function adaptQuizShape(q) {
-  if (!q || typeof q !== "object") return null;
-  const prompt = q.prompt ?? q.question ?? q.text ?? null;
-  const choices = q.choices ?? q.options ?? q.answers ?? null;
-  const answer = (typeof q.answerIndex === "number") ? q.answerIndex : q.answer;
-
-  const hint = q.hint ?? null;
-  const explanation = q.explanation ?? q.rationale ?? null;
-  const explanationBlocks = Array.isArray(q.explanationBlocks) ? q.explanationBlocks : null;
-  const materialId = q.materialId ?? q.material ?? null;
-
-  if (!prompt || !Array.isArray(choices) || typeof answer !== "number") return null;
-  return { prompt, choices, answer, hint, explanation, explanationBlocks, materialId };
-}
+  function adaptQuizShape(q) {
+    if (!q || typeof q !== "object") return null;
+    const prompt = q.prompt ?? q.question ?? q.text ?? null;
+    const choices = q.choices ?? q.options ?? q.answers ?? null;
+    const answer = (typeof q.answerIndex === "number") ? q.answerIndex : q.answer;
+    if (!prompt || !Array.isArray(choices) || typeof answer !== "number") return null;
+    return { prompt, choices, answer };
+  }
 
   function collectQuizzesForLesson(lesson) {
     const arr = [];
@@ -587,7 +431,7 @@ function adaptQuizShape(q) {
     const root = STATE.moduleQuizzesByLesson?.[modId]?.[lesson?.id];
     if (Array.isArray(root)) root.forEach(add);
 
-    return arr;
+    return arr; // unified [{prompt,choices,answer}, ...]
   }
 
   function getQuizIndex(moduleId, lessonId) {
@@ -598,114 +442,68 @@ function adaptQuizShape(q) {
     STATE.quizIndexByLesson[moduleId][lessonId] = idx;
   }
 
- function renderQuiz(lesson) {
-  const area = document.querySelector(SELECTORS.quizArea);
-  if (!area) return;
-
-  const modId = STATE.currentModule.id;
-  const all = collectQuizzesForLesson(lesson);
-  if (!all.length) { area.innerHTML = ""; return; }
-
-  let idx = Math.max(0, Math.min(getQuizIndex(modId, lesson.id), all.length - 1));
-  setQuizIndex(modId, lesson.id, idx);
-
-  const q = all[idx];
-  const userAns = getAnswer(modId, lesson.id, idx);
-
-  const atFirst = idx === 0;
-  const atLast = idx === all.length - 1;
-
-  const hasHint = !!q.hint;
-  const hasExplain = !!(q.explanation || q.explanationBlocks || q.materialId);
-
-  area.innerHTML = `
-    <h3>Check Your Understanding</h3>
-    <div class="quiz-meta" style="display:flex;align-items:center;gap:.5rem;margin:.25rem 0 .5rem 0;">
-      <button class="btn small" id="quiz-prev" ${atFirst ? "disabled" : ""}>Previous</button>
-      <span class="note">Question ${idx + 1} of ${all.length}</span>
-      <button class="btn small" id="quiz-next" ${atLast ? "disabled" : ""}>Next</button>
-    </div>
-
-    <p>${escapeHtml(q.prompt)}</p>
-
-    <div class="choices" role="radiogroup" aria-label="Quiz choices">
-      ${q.choices.map((c, i) => {
-        const checked = userAns === i ? 'aria-checked="true"' : 'aria-checked="false"';
-        return `<div class="choice" role="radio" tabindex="0" data-index="${i}" ${checked}>${escapeHtml(c)}</div>`;
-      }).join("")}
-    </div>
-
-    ${(hasHint || hasExplain) ? `
-      <div class="quiz-tools" style="margin-top:.5rem;display:flex;gap:.5rem;flex-wrap:wrap;">
-        ${hasHint ? `<button class="btn small" id="quiz-hint">Hint</button>` : ""}
-        ${hasExplain ? `<button class="btn small" id="quiz-explain">Explanation</button>` : ""}
-      </div>
-    ` : ""}
-
-    <div class="result" id="quiz-result" aria-live="polite" style="margin-top:.5rem;"></div>
-    <div id="quiz-hint-area" class="note" hidden></div>
-    <div id="quiz-explain-area" class="explain" hidden></div>
-  `;
-
-  // Wire choices
-  area.querySelectorAll(".choice").forEach(el => {
-    el.addEventListener("click", () => selectChoice(el, q.answer, idx));
-    el.addEventListener("keydown", (ev) => {
-      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectChoice(el, q.answer, idx); }
-    });
-  });
-
-  // Hint button
-  const hintBtn = area.querySelector("#quiz-hint");
-  if (hintBtn && q.hint) {
-    hintBtn.addEventListener("click", () => {
-      const ha = area.querySelector("#quiz-hint-area");
-      if (!ha) return;
-      if (ha.hidden) {
-        ha.innerHTML = `<p>${escapeHtml(q.hint)}</p>`;
-        ha.hidden = false;
-      } else {
-        ha.hidden = true;
-      }
-    });
-  }
-
-  // Explanation button
-  const expBtn = area.querySelector("#quiz-explain");
-  if (expBtn && hasExplain) {
-    expBtn.addEventListener("click", async () => {
-      await revealExplanation(q, area);
-    });
-  }
-
-  // Show previous result if any
-  if (typeof userAns === "number") {
-    showQuizResult(userAns === q.answer);
-  }
-}
-function selectChoice(el, correctIndex, quizIndex) {
-  const idx = Number(el.dataset.index);
-  el.parentElement.querySelectorAll(".choice").forEach(n => n.setAttribute("aria-checked", "false"));
-  el.setAttribute("aria-checked", "true");
-
-  const modId = STATE.currentModule.id;
-  const lessonId = STATE.currentLesson.id;
-  const qIdx = (typeof quizIndex === "number") ? quizIndex : getQuizIndex(modId, lessonId);
-
-  setAnswer(modId, lessonId, idx, qIdx);
-
-  const all = collectQuizzesForLesson(STATE.currentLesson);
-  const q = all[qIdx];
-
-  const isCorrect = idx === correctIndex;
-  showQuizResult(isCorrect);
-
-  // If wrong, auto-show explanation/material (if available)
-  if (!isCorrect && (q.explanation || q.explanationBlocks || q.materialId)) {
+  function renderQuiz(lesson) {
     const area = document.querySelector(SELECTORS.quizArea);
-    if (area) revealExplanation(q, area);
+    if (!area) return;
+
+    const modId = STATE.currentModule.id;
+    const all = collectQuizzesForLesson(lesson);
+    if (!all.length) { area.innerHTML = ""; return; }
+
+    // Clamp cursor
+    let idx = Math.max(0, Math.min(getQuizIndex(modId, lesson.id), all.length - 1));
+    setQuizIndex(modId, lesson.id, idx);
+
+    const q = all[idx];
+    const userAns = getAnswer(modId, lesson.id, idx);
+
+    const atFirst = idx === 0;
+    const atLast = idx === all.length - 1;
+
+    area.innerHTML = `
+      <h3>Check Your Understanding</h3>
+      <div class="quiz-meta" style="display:flex;align-items:center;gap:.5rem;margin:.25rem 0 .5rem 0;">
+        <button class="btn small" id="quiz-prev" ${atFirst ? "disabled" : ""}>Previous</button>
+        <span class="note">Question ${idx + 1} of ${all.length}</span>
+        <button class="btn small" id="quiz-next" ${atLast ? "disabled" : ""}>Next</button>
+      </div>
+
+      <p>${escapeHtml(q.prompt)}</p>
+
+      <div class="choices" role="radiogroup" aria-label="Quiz choices">
+        ${q.choices.map((c, i) => {
+          const checked = userAns === i ? 'aria-checked="true"' : 'aria-checked="false"';
+          return `<div class="choice" role="radio" tabindex="0" data-index="${i}" ${checked}>${escapeHtml(c)}</div>`;
+        }).join("")}
+      </div>
+
+      <div class="result" id="quiz-result" aria-live="polite"></div>
+    `;
+
+    // Wire choice interactions
+    area.querySelectorAll(".choice").forEach(el => {
+      el.addEventListener("click", () => selectChoice(el, q.answer, idx));
+      el.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectChoice(el, q.answer, idx); }
+      });
+    });
+
+    // Show previous result if any
+    if (typeof userAns === "number") {
+      showQuizResult(userAns === q.answer);
+    }
   }
-}
+
+  function selectChoice(el, correctIndex, quizIndex) {
+    const idx = Number(el.dataset.index);
+    el.parentElement.querySelectorAll(".choice").forEach(n => n.setAttribute("aria-checked", "false"));
+    el.setAttribute("aria-checked", "true");
+    const modId = STATE.currentModule.id;
+    const lessonId = STATE.currentLesson.id;
+    const qIdx = (typeof quizIndex === "number") ? quizIndex : getQuizIndex(modId, lessonId);
+    setAnswer(modId, lessonId, idx, qIdx);
+    showQuizResult(idx === correctIndex);
+  }
 
   function showQuizResult(isCorrect) {
     const rr = document.getElementById("quiz-result");
@@ -721,28 +519,37 @@ function selectChoice(el, correctIndex, quizIndex) {
       return { visited: {}, answers: {} };
     }
   }
-  function saveProgress() { localStorage.setItem("ol_progress", JSON.stringify(STATE.progress)); }
+  function saveProgress() {
+    localStorage.setItem("ol_progress", JSON.stringify(STATE.progress));
+  }
   function markVisited(moduleId, lessonId) {
     if (!STATE.progress.visited[moduleId]) STATE.progress.visited[moduleId] = {};
     STATE.progress.visited[moduleId][lessonId] = true;
     saveProgress();
   }
 
-  // Per-question answers with backward compatibility
+  // Store per-question answers; keep backward compatibility with scalar saves
   function setAnswer(moduleId, lessonId, ansIndex, qIndex = 0) {
     if (!STATE.progress.answers[moduleId]) STATE.progress.answers[moduleId] = {};
     const existing = STATE.progress.answers[moduleId][lessonId];
+
+    // Upgrade older scalar to object {0: value}
     if (typeof existing === "number") {
       STATE.progress.answers[moduleId][lessonId] = { 0: existing };
     } else if (!existing || typeof existing !== "object") {
       STATE.progress.answers[moduleId][lessonId] = {};
     }
+
     STATE.progress.answers[moduleId][lessonId][qIndex] = ansIndex;
     saveProgress();
   }
+
   function getAnswer(moduleId, lessonId, qIndex = 0) {
     const v = STATE.progress.answers?.[moduleId]?.[lessonId];
-    if (typeof v === "number") return qIndex === 0 ? v : undefined;
+    if (typeof v === "number") {
+      // old saves: single answer -> treat as question 0 only
+      return qIndex === 0 ? v : undefined;
+    }
     return v?.[qIndex];
   }
 
