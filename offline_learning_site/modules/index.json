@@ -43,7 +43,7 @@
     {
       "id": "public_domain_works",
       "title": "Public Domain Works",
-      "description": "Classic texts (plain text) for reading practice.",
+      "description": "Classic texts (plain text) or pdf (portable document format) for reading practice.",
       "tags": ["reading", "classics", "text"],
       "lesson_count": 1,
       "materials": true

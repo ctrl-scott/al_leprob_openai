@@ -1,14 +1,42 @@
 {
   "lessons": [
     {
-      "id": "public-work",
-      "title": "Dante's Inferno",
+      "id": "public_domain_works",
+      "title": "Author: Alighieri, D. - Dante's Inferno",
       "level": "NonIntro",
       "content": [
         {
           "type": "a",
           "text": "Read: Dante — The Divine Comedy (plain text)",
-          "href": "pdworks/Dantes_inferno_pg8800.txt",
+          "href": "assets/text/Dantes_inferno_pg8800.txt",
+          "download": false,
+          "newTab": true
+        }
+      ]
+    },
+    {
+      "id": "public_domain_works_2",
+      "title": "Author: Winter, I.L. - Public Speaking Principles And Practice",
+      "level": "NonIntro",
+      "content": [
+        {
+          "type": "a",
+          "text": "Read: Public Speaking Principles And Practice (plain text)",
+          "href": "assets/text/Public_Speaking_Principles_And_Practice_Public_Domain_pg6333.txt",
+          "download": false,
+          "newTab": true
+        }
+      ]
+    },
+    {
+      "id": "public_domain_works_3",
+      "title": "Author: Fowler - The Kings English (1924)",
+      "level": "NonIntro",
+      "content": [
+        {
+          "type": "a",
+          "text": "Read: The Kings English (1924)",
+          "href": "assets/text/Fowler_The_Kings_English_Public_Domain_pg75439.txt",
           "download": false,
           "newTab": true
         }
