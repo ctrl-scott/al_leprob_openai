@@ -1,0 +1,41 @@
+{
+  "materials": [
+    {
+      "id": "english-subject",
+      "title": "Identifying Subjects in Simple Sentences",
+      "content": [
+        { "type": "h3", "text": "How to Speak and Write Correctly (Devlin) — Subject" },
+        { "type": "p",  "text": "In a simple clause, the subject names who or what performs the action (or is described). Identify the subject before the verb." },
+        { "type": "ul", "items": [
+          "A subject is a noun or pronoun.",
+          "It usually comes before the main verb in English statements.",
+          "Ask: Who or what does the action?"
+        ]},
+        { "type": "a",  "text": "Devlin — plain text (Project Gutenberg)", "href": "assets/text/Devlin_HowToWriteSpeakCorrectly_PublicDomain_pg6409.txt", "newTab": true }
+      ]
+    },
+    {
+      "id": "english-verb",
+      "title": "Recognizing Verbs (Actions and States)",
+      "content": [
+        { "type": "h3", "text": "How to Speak and Write Correctly (Devlin) — Verbs" },
+        { "type": "p",  "text": "A verb expresses action (run, think) or a state of being (is, seem). In simple sentences, it follows the subject." },
+        { "type": "ul", "items": [
+          "Action verbs: do, make, fly, read",
+          "Linking verbs: be, seem, become",
+          "Verbs change form for tense and agreement"
+        ]},
+        { "type": "a",  "text": "Devlin — plain text (Project Gutenberg)", "href": "assets/text/Devlin_HowToWriteSpeakCorrectly_PublicDomain_pg6409.txt", "newTab": true }
+      ]
+    },
+    {
+      "id": "english-parallelism",
+      "title": "Parallel Structure in Series",
+      "content": [
+        { "type": "h3", "text": "Parallelism Basics" },
+        { "type": "p",  "text": "Items in a series should have the same grammatical form: e.g., write, analyze, and present (all base forms)." },
+        { "type": "a",  "text": "Strunk (1918) — The Elements of Style (public domain)", "href": "assets/text/Strunk_ElementsOfStyle_1918_publicdomain.txt", "newTab": true }
+      ]
+    }
+  ]
+}

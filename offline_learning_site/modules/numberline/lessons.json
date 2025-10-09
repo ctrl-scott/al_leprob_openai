@@ -29,6 +29,23 @@
         "choices": ["2", "3", "4"],
         "answer": 1
       }
+    },
+        {
+      "id": "find-5",
+      "title": "Number Line: Find 5",
+      "level": "Foundational",
+      "content": [
+        { "type": "numberline", "min": 0, "max": 8, "tickEvery": 1, "target": 5, "showTargetLabel": true }
+      ],
+      "quiz": {
+        "prompt": "On a number line from 0 to 8, where is the number 5?",
+        "choices": [
+          "At the tick labeled 5",
+          "Between 4 and 5",
+          "Between 5 and 6"
+        ],
+        "answer": 0
+      }
     }
   ]
 }

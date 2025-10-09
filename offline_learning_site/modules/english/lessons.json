@@ -720,6 +720,29 @@
           "type": "p",
           "text": "Answer: B \u2014 Removes vagueness and redundancy."
         }
+      ],
+         "quizzes": [
+        {
+          "prompt": "What is the subject in the sentence: “The students study.”?",
+          "choices": ["The students", "study"],
+          "answer": 0,
+          "materialId": "english-subject",
+          "explanation": "The subject names who performs the action; here it is 'The students'."
+        },
+        {
+          "prompt": "Which word is the verb in the sentence: “Birds fly south.”?",
+          "choices": ["Birds", "fly", "south"],
+          "answer": 1,
+          "materialId": "english-verb",
+          "explanation": "The verb expresses action or state. Here 'fly' is the action."
+        },
+        {
+          "prompt": "Choose the option that maintains parallel structure: “The internship taught me to write reports, analyze data, and ____.”",
+          "choices": ["presenting findings", "present findings"],
+          "answer": 1,
+          "materialId": "english-parallelism",
+          "explanation": "Keep items in a series parallel (write, analyze, present)."
+        }
       ]
     }
   ]
