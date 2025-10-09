@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
-   sodipodi:docname="triangle.svg"
+   sodipodi:docname="square.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -39,9 +39,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
+    <rect
        style="fill:#000080;stroke-width:0.264583"
-       d="M 109.42105,49.499998 15.110526,226.65789 184.97368,227.17894 Z"
-       id="path1" />
+       id="rect1"
+       width="184.97369"
+       height="175.59474"
+       x="14.068421"
+       y="51.584209" />
   </g>
 </svg>

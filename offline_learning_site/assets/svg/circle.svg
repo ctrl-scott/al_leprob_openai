@@ -8,7 +8,7 @@
    version="1.1"
    id="svg1"
    inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
-   sodipodi:docname="triangle.svg"
+   sodipodi:docname="circle.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,11 +24,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.5077862"
-     inkscape:cx="396.82056"
+     inkscape:zoom="0.50422278"
+     inkscape:cx="397.64169"
      inkscape:cy="561.25984"
      inkscape:window-width="1440"
-     inkscape:window-height="789"
+     inkscape:window-height="785"
      inkscape:window-x="0"
      inkscape:window-y="25"
      inkscape:window-maximized="1"
@@ -39,9 +39,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <path
+    <ellipse
        style="fill:#000080;stroke-width:0.264583"
-       d="M 109.42105,49.499998 15.110526,226.65789 184.97368,227.17894 Z"
-       id="path1" />
+       id="path1"
+       cx="104.68463"
+       cy="125.41166"
+       rx="87.368378"
+       ry="87.106003" />
   </g>
 </svg>

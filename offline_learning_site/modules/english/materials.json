@@ -34,7 +34,7 @@
       "content": [
         { "type": "h3", "text": "Parallelism Basics" },
         { "type": "p",  "text": "Items in a series should have the same grammatical form: e.g., write, analyze, and present (all base forms)." },
-        { "type": "a",  "text": "Strunk (1918) — The Elements of Style (public domain)", "href": "assets/text/Strunk_ElementsOfStyle_1918_publicdomain.txt", "newTab": true }
+        { "type": "a",  "text": "Strunk (1918) — The Elements of Style (public domain)", "href": "assets/text/Strunk_Elements_of_Style_Public_Domain_pg37134.txt", "newTab": true }
       ]
     }
   ]

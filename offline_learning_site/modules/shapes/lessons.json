@@ -6,9 +6,31 @@
       "level": "Intro",
       "content": [
         { "type": "h3", "text": "Triangle" },
-        { "type": "svg", "src": "./assets/svg/triangle.svg", "alt": "Outlined triangle" },
+        { "type": "svg", "src": "./assets/svg/triangle.svg", "alt": "Outlined and filled  triangle" },
         { "type": "p", "text": "A triangle has three sides." },
         { "type": "tenframe", "value": 3, "label": "Count to three" }
+      ]
+    },
+        {
+      "id": "circle",
+      "title": "Circle",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Circle" },
+        { "type": "svg", "src": "./assets/svg/circle.svg", "alt": "Outlined and filled circle" },
+        { "type": "p", "text": "A circle has no sides but it does have a circumference." },
+        { "type": "tenframe", "value": 0, "label": "There is no count" }
+      ]
+    },
+         {
+      "id": "square",
+      "title": "Square",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Square" },
+        { "type": "svg", "src": "./assets/svg/square.svg", "alt": "Outlined and filled square" },
+        { "type": "p", "text": "A proper square has four equal sides" },
+        { "type": "tenframe", "value": 4, "label": "Count to four." }
       ]
     }
   ]
