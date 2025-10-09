@@ -345,6 +345,28 @@
           "type": "p",
           "text": "Answer: C \u2014 The West."
         }
+      ],
+  "quizzes": [
+        {
+          "prompt": "What is the supreme law of the land?",
+          "choices": [
+            "The Declaration of Independence",
+            "The U.S. Constitution",
+            "The Articles of Confederation",
+            "The Bill of Rights"
+          ],
+          "answer": 1
+        },
+        {
+          "prompt": "Which branch makes federal laws?",
+          "choices": [ "Executive", "Judicial", "Legislative (Congress)", "State governments" ],
+          "answer": 2
+        },
+        {
+          "prompt": "How many U.S. Senators are there?",
+          "choices": [ "50", "100", "435", "538" ],
+          "answer": 1
+        }
       ]
     }
   ]

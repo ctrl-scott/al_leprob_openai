@@ -8,7 +8,7 @@
 (function () {
   "use strict";
 
-  // ========= Utilities first =========
+  // ========= Utilities go FIRST so they exist for all later calls =========
   function escapeHtml(str) {
     return String(str)
       .replaceAll("&", "&amp;")
@@ -34,6 +34,31 @@
     const label = b && b.text ? escapeHtml(b.text) : href;
     return `<p><a href="${href}"${download}${target}>${label}</a></p>`;
   }
+
+  // ---------- QUIZ ADAPTERS AND DEBUG ----------
+function adaptQuizShape(q) {
+  if (!q || typeof q !== "object") return null;
+  // accept multiple property names
+  const prompt = q.prompt ?? q.question ?? q.text ?? null;
+  const choices = q.choices ?? q.options ?? q.answers ?? null;
+  // support "answer" or "answerIndex"
+  const answer = (typeof q.answerIndex === "number") ? q.answerIndex : q.answer;
+
+  if (!prompt || !Array.isArray(choices) || typeof answer !== "number") {
+    return null; // not a usable question
+  }
+  return { prompt, choices, answer };
+}
+
+function debugQuizProbe(lesson, moduleId, map) {
+  console.debug("[QUIZ] Probing lesson", { moduleId, lessonId: lesson?.id, lesson });
+  console.debug("[QUIZ] lesson.quiz:", lesson?.quiz);
+  console.debug("[QUIZ] lesson.quizzes:", lesson?.quizzes);
+  console.debug("[QUIZ] lesson.questions:", lesson?.questions);
+  const rootArr = map?.[moduleId]?.[lesson?.id];
+  console.debug("[QUIZ] root map for lesson:", rootArr);
+}
+
 
   // ---------- Extra block renderers ----------
   function renderImg(b) {
@@ -109,7 +134,6 @@
     </div>`;
   }
 
-  // Global handler for audio buttons
   document.addEventListener("click", (e) => {
     const a = e.target.closest("[data-audio]");
     if (!a) return;
@@ -137,97 +161,18 @@
 
     // caches
     moduleLessons: {},            // moduleId -> [lessons]
-    moduleQuizzesByLesson: {},    // moduleId -> { lessonId: [rootQuestions] }
-    quizIndexByLesson: {}         // moduleId -> { lessonId: number }
+    moduleQuizzesByLesson: {}     // moduleId -> { lessonId: [rootQuestions] }
   };
 
-  // ================== View switching / global clicks ==================
+  // ================== View switching ==================
   document.addEventListener("click", function (e) {
-    const t = e.target;
-
-    // View buttons
-    if (t.matches("[data-view]")) {
-      const view = t.getAttribute("data-view");
+    const target = e.target;
+    if (target.matches("[data-view]")) {
+      const view = target.getAttribute("data-view");
       showView(view);
-      return;
     }
-    if (t.id === "back-to-modules") {
+    if (target.id === "back-to-modules") {
       showView("modules");
-      return;
-    }
-
-    // Open module
-    if (t && t.dataset && t.dataset.action === "open-module" && t.dataset.module) {
-      openModule(t.dataset.module);
-      return;
-    }
-
-    // Lesson pagination
-    if (t && t.id === "prev-lesson" && t.dataset.go) { goToLesson(t.dataset.go); return; }
-    if (t && t.id === "next-lesson" && t.dataset.go) { goToLesson(t.dataset.go); return; }
-
-    // Quiz pagination
-    if (t && t.id === "quiz-prev") {
-      const modId = STATE.currentModule.id;
-      const lessonId = STATE.currentLesson.id;
-      const all = collectQuizzesForLesson(STATE.currentLesson);
-      const i = getQuizIndex(modId, lessonId);
-      if (i > 0) {
-        setQuizIndex(modId, lessonId, i - 1);
-        renderQuiz(STATE.currentLesson);
-      }
-      return;
-    }
-    if (t && t.id === "quiz-next") {
-      const modId = STATE.currentModule.id;
-      const lessonId = STATE.currentLesson.id;
-      const all = collectQuizzesForLesson(STATE.currentLesson);
-      const i = getQuizIndex(modId, lessonId);
-      if (i < all.length - 1) {
-        setQuizIndex(modId, lessonId, i + 1);
-        renderQuiz(STATE.currentLesson);
-      }
-      return;
-    }
-
-    // Export / Import / Clear
-    if (t && t.id === "export-progress") {
-      const blob = new Blob([JSON.stringify(STATE.progress, null, 2)], { type: "application/json" });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "offline_learning_progress.json";
-      a.click();
-      URL.revokeObjectURL(url);
-      return;
-    }
-    if (t && t.id === "clear-progress") {
-      if (confirm("This will erase local progress on this device. Proceed?")) {
-        STATE.progress = { visited: {}, answers: {} };
-        saveProgress();
-        renderProgress();
-      }
-      return;
-    }
-    if (t && t.id === "import-progress") {
-      const file = document.getElementById("import-file").files[0];
-      if (!file) { alert("Please select a file to import."); return; }
-      const reader = new FileReader();
-      reader.onload = () => {
-        try {
-          const data = JSON.parse(reader.result);
-          if (data && typeof data === "object") {
-            STATE.progress = data;
-            saveProgress();
-            alert("Progress imported successfully.");
-            renderProgress();
-          }
-        } catch (err) {
-          alert("Import failed. The file did not contain valid JSON.");
-        }
-      };
-      reader.readAsText(file);
-      return;
     }
   });
 
@@ -301,6 +246,12 @@
         <button class="btn small" data-action="open-module" data-module="${mod.id}">Open</button>
       </div>
     `;
+    card.addEventListener("click", async (e) => {
+      const t = e.target;
+      if (t && t.dataset && t.dataset.action === "open-module") {
+        await openModule(t.dataset.module);
+      }
+    });
     return card;
   }
 
@@ -357,12 +308,6 @@
       </nav>
     `;
 
-    // Initialize quiz index for this lesson if missing
-    const modId = STATE.currentModule.id;
-    if (STATE.quizIndexByLesson?.[modId]?.[lesson.id] == null) {
-      setQuizIndex(modId, lesson.id, 0);
-    }
-
     hydrateSvg();       // hydrate any external SVGs
     renderQuiz(lesson); // draw quiz
     markVisited(STATE.currentModule.id, lesson.id);
@@ -399,6 +344,12 @@
     `;
   }
 
+  document.addEventListener("click", function (e) {
+    const t = e.target;
+    if (t && t.id === "prev-lesson" && t.dataset.go) goToLesson(t.dataset.go);
+    if (t && t.id === "next-lesson" && t.dataset.go) goToLesson(t.dataset.go);
+  });
+
   async function goToLesson(lessonId) {
     try {
       const lessons = STATE.moduleLessons[STATE.currentModule.id] || [];
@@ -409,99 +360,73 @@
     }
   }
 
-  // ---------- Quiz adapters / pagination ----------
-  function adaptQuizShape(q) {
-    if (!q || typeof q !== "object") return null;
-    const prompt = q.prompt ?? q.question ?? q.text ?? null;
-    const choices = q.choices ?? q.options ?? q.answers ?? null;
-    const answer = (typeof q.answerIndex === "number") ? q.answerIndex : q.answer;
-    if (!prompt || !Array.isArray(choices) || typeof answer !== "number") return null;
-    return { prompt, choices, answer };
+  // ---------- Quiz rendering ----------
+function renderQuiz(lesson) {
+  const area = document.querySelector(SELECTORS.quizArea);
+  if (!area) return;
+
+  // DEBUG: show what the function sees
+  debugQuizProbe(lesson, STATE.currentModule.id, STATE.moduleQuizzesByLesson);
+
+  // Try lesson-level single quiz
+  const q1 = adaptQuizShape(lesson.quiz);
+
+  // Try lesson-level arrays: quizzes[] or questions[]
+  const q2 = Array.isArray(lesson.quizzes) && lesson.quizzes.length
+    ? adaptQuizShape(lesson.quizzes[0])
+    : null;
+
+  const q3 = Array.isArray(lesson.questions) && lesson.questions.length
+    ? adaptQuizShape(lesson.questions[0])
+    : null;
+
+  // Try root-level mapping { moduleId: { lessonId: [ {question,options,answer}, ... ] } }
+  function fromRootQuizFirst(moduleId, lessonId) {
+    const arr = STATE.moduleQuizzesByLesson?.[moduleId]?.[lessonId];
+    if (!arr || !arr.length) return null;
+    // items may be {question, options, answer} or already adapted
+    return adaptQuizShape(arr[0]) || null;
+  }
+  const q4 = fromRootQuizFirst(STATE.currentModule.id, lesson.id);
+
+  const q = q1 || q2 || q3 || q4;
+
+  if (!q) {
+    console.warn("[QUIZ] No usable quiz found for lesson:", lesson?.id);
+    area.innerHTML = ""; 
+    return;
   }
 
-  function collectQuizzesForLesson(lesson) {
-    const arr = [];
-    const add = (x) => { const a = adaptQuizShape(x); if (a) arr.push(a); };
+  const userAns = getAnswer(STATE.currentModule.id, lesson.id);
+  area.innerHTML = `
+    <h3>Check Your Understanding</h3>
+    <p>${escapeHtml(q.prompt)}</p>
+    <div class="choices" role="radiogroup" aria-label="Quiz choices">
+      ${q.choices.map((c, i) => {
+        const checked = userAns === i ? 'aria-checked="true"' : 'aria-checked="false"';
+        return `<div class="choice" role="radio" tabindex="0" data-index="${i}" ${checked}>${escapeHtml(c)}</div>`;
+      }).join("")}
+    </div>
+    <div class="result" id="quiz-result" aria-live="polite"></div>
+  `;
 
-    if (lesson?.quiz) add(lesson.quiz);
-    if (Array.isArray(lesson?.quizzes)) lesson.quizzes.forEach(add);
-    if (Array.isArray(lesson?.questions)) lesson.questions.forEach(add);
-
-    const modId = STATE.currentModule?.id;
-    const root = STATE.moduleQuizzesByLesson?.[modId]?.[lesson?.id];
-    if (Array.isArray(root)) root.forEach(add);
-
-    return arr; // unified [{prompt,choices,answer}, ...]
-  }
-
-  function getQuizIndex(moduleId, lessonId) {
-    return STATE.quizIndexByLesson?.[moduleId]?.[lessonId] ?? 0;
-  }
-  function setQuizIndex(moduleId, lessonId, idx) {
-    if (!STATE.quizIndexByLesson[moduleId]) STATE.quizIndexByLesson[moduleId] = {};
-    STATE.quizIndexByLesson[moduleId][lessonId] = idx;
-  }
-
-  function renderQuiz(lesson) {
-    const area = document.querySelector(SELECTORS.quizArea);
-    if (!area) return;
-
-    const modId = STATE.currentModule.id;
-    const all = collectQuizzesForLesson(lesson);
-    if (!all.length) { area.innerHTML = ""; return; }
-
-    // Clamp cursor
-    let idx = Math.max(0, Math.min(getQuizIndex(modId, lesson.id), all.length - 1));
-    setQuizIndex(modId, lesson.id, idx);
-
-    const q = all[idx];
-    const userAns = getAnswer(modId, lesson.id, idx);
-
-    const atFirst = idx === 0;
-    const atLast = idx === all.length - 1;
-
-    area.innerHTML = `
-      <h3>Check Your Understanding</h3>
-      <div class="quiz-meta" style="display:flex;align-items:center;gap:.5rem;margin:.25rem 0 .5rem 0;">
-        <button class="btn small" id="quiz-prev" ${atFirst ? "disabled" : ""}>Previous</button>
-        <span class="note">Question ${idx + 1} of ${all.length}</span>
-        <button class="btn small" id="quiz-next" ${atLast ? "disabled" : ""}>Next</button>
-      </div>
-
-      <p>${escapeHtml(q.prompt)}</p>
-
-      <div class="choices" role="radiogroup" aria-label="Quiz choices">
-        ${q.choices.map((c, i) => {
-          const checked = userAns === i ? 'aria-checked="true"' : 'aria-checked="false"';
-          return `<div class="choice" role="radio" tabindex="0" data-index="${i}" ${checked}>${escapeHtml(c)}</div>`;
-        }).join("")}
-      </div>
-
-      <div class="result" id="quiz-result" aria-live="polite"></div>
-    `;
-
-    // Wire choice interactions
-    area.querySelectorAll(".choice").forEach(el => {
-      el.addEventListener("click", () => selectChoice(el, q.answer, idx));
-      el.addEventListener("keydown", (ev) => {
-        if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectChoice(el, q.answer, idx); }
-      });
+  area.querySelectorAll(".choice").forEach(el => {
+    el.addEventListener("click", () => selectChoice(el, q.answer));
+    el.addEventListener("keydown", (ev) => {
+      if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); selectChoice(el, q.answer); }
     });
+  });
 
-    // Show previous result if any
-    if (typeof userAns === "number") {
-      showQuizResult(userAns === q.answer);
-    }
+  if (typeof userAns === "number") {
+    showQuizResult(userAns === q.answer);
   }
+}
 
-  function selectChoice(el, correctIndex, quizIndex) {
+  function selectChoice(el, correctIndex) {
     const idx = Number(el.dataset.index);
     el.parentElement.querySelectorAll(".choice").forEach(n => n.setAttribute("aria-checked", "false"));
     el.setAttribute("aria-checked", "true");
-    const modId = STATE.currentModule.id;
-    const lessonId = STATE.currentLesson.id;
-    const qIdx = (typeof quizIndex === "number") ? quizIndex : getQuizIndex(modId, lessonId);
-    setAnswer(modId, lessonId, idx, qIdx);
+    setAnswer(STATE.currentModule.id, STATE.currentLesson.id, idx);
     showQuizResult(idx === correctIndex);
   }
 
@@ -527,30 +452,13 @@
     STATE.progress.visited[moduleId][lessonId] = true;
     saveProgress();
   }
-
-  // Store per-question answers; keep backward compatibility with scalar saves
-  function setAnswer(moduleId, lessonId, ansIndex, qIndex = 0) {
+  function setAnswer(moduleId, lessonId, ansIndex) {
     if (!STATE.progress.answers[moduleId]) STATE.progress.answers[moduleId] = {};
-    const existing = STATE.progress.answers[moduleId][lessonId];
-
-    // Upgrade older scalar to object {0: value}
-    if (typeof existing === "number") {
-      STATE.progress.answers[moduleId][lessonId] = { 0: existing };
-    } else if (!existing || typeof existing !== "object") {
-      STATE.progress.answers[moduleId][lessonId] = {};
-    }
-
-    STATE.progress.answers[moduleId][lessonId][qIndex] = ansIndex;
+    STATE.progress.answers[moduleId][lessonId] = ansIndex;
     saveProgress();
   }
-
-  function getAnswer(moduleId, lessonId, qIndex = 0) {
-    const v = STATE.progress.answers?.[moduleId]?.[lessonId];
-    if (typeof v === "number") {
-      // old saves: single answer -> treat as question 0 only
-      return qIndex === 0 ? v : undefined;
-    }
-    return v?.[qIndex];
+  function getAnswer(moduleId, lessonId) {
+    return STATE.progress.answers?.[moduleId]?.[lessonId];
   }
 
   function renderProgress() {
@@ -567,6 +475,45 @@
       box.appendChild(card);
     });
   }
+
+  // ---------- Export / Import ----------
+  document.addEventListener("click", function (e) {
+    if (e.target && e.target.id === "export-progress") {
+      const blob = new Blob([JSON.stringify(STATE.progress, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "offline_learning_progress.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    if (e.target && e.target.id === "clear-progress") {
+      if (confirm("This will erase local progress on this device. Proceed?")) {
+        STATE.progress = { visited: {}, answers: {} };
+        saveProgress();
+        renderProgress();
+      }
+    }
+    if (e.target && e.target.id === "import-progress") {
+      const file = document.getElementById("import-file").files[0];
+      if (!file) { alert("Please select a file to import."); return; }
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const data = JSON.parse(reader.result);
+          if (data && typeof data === "object") {
+            STATE.progress = data;
+            saveProgress();
+            alert("Progress imported successfully.");
+            renderProgress();
+          }
+        } catch (err) {
+          alert("Import failed. The file did not contain valid JSON.");
+        }
+      };
+      reader.readAsText(file);
+    }
+  });
 
   // ---------- Search ----------
   function wireSearch() {
