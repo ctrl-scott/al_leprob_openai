@@ -8,6 +8,11 @@
 - (2) ChatGPT Branch of offline learning discussion:
 - https://chatgpt.com/share/68e50983-43c0-800c-bc82-91d758b18676
 
+- (3) ChatGPT Branch that does quiz and materials work:
+- https://chatgpt.com/share/68e7cdd4-8f74-800c-bd31-7b4b8594f7ee
+
+
+
 ### Installation and Running 
 
 ##### NOTE: The optional items like inkscape, ffmpeg and pydub and other libraries are only required if you are going to expand the applications svgs, audio, phonics
