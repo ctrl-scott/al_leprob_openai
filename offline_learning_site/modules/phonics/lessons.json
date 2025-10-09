@@ -134,10 +134,10 @@
              "examples": [
                { "word": "a", "audio": "assets/audio/phonics/a.ogg" },
                { "word": "at", "audio": "assets/audio/phonics/a_at.ogg" },
-               { "word": "map", "audio": "assets/audio/phonics/a_map.ogg" }
+               { "word": "map", "audio": "assets/audio/phonics/m_map.ogg" }
              ],
              "minimalPairs": [
-               { "pair": ["pat", "pet"], "audioA": "assets/audio/phonics/a_pat.ogg", "audioB": "assets/audio/phonics/e_pet.ogg" }
+               { "pair": ["pat", "pet"], "audioA": "assets/audio/phonics/p_pat.ogg", "audioB": "assets/audio/phonics/e_pet.ogg" }
              ]
            }
          ]

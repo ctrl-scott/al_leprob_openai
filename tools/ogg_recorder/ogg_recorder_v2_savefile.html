@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- https://chatgpt.com/share/68e508ee-7224-800c-aa97-1e2a4bc477b2 -->
+ <!-- FireFox audio information https://support.mozilla.org/en-US/kb/audio-and-video-firefox -->
+<!-- ogg extension is native to FireFox; I added an mp3 it works fine you just have to account for the extension in the code -->
+<head>
+  <meta charset="utf-8" />
+  <title>OGG Voice Recorder (Offline)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 700px; margin: 2rem auto; line-height: 1.4; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; margin: 1rem 0; }
+    button { padding: .6rem 1rem; border: 1px solid #ccc; border-radius: .5rem; background: #f6f6f6; cursor: pointer; }
+    button[disabled] { opacity: .5; cursor: not-allowed; }
+    #status { font-weight: 600; }
+    audio { width: 100%; margin-top: .75rem; }
+    .note { color: #555; font-size: .95rem; }
+    .clip { border: 1px solid #eee; padding: .5rem; margin: .5rem 0; border-radius: .5rem; }
+  </style>
+</head>
+<body>
+  <h1>OGG Voice Recorder (Opus)</h1>
+  <p class="note">Low-resource defaults: mono ~16kHz, ~24kbps Opus in OGG (best in Firefox).</p>
+
+  <div class="row">
+    <button id="btnInit">Enable Mic</button>
+    <button id="btnStart" disabled>Start</button>
+    <button id="btnStop" disabled>Stop</button>
+    <button id="btnClear" disabled>Clear Clips</button>
+    <span id="status">Idle</span>
+  </div>
+
+  <div id="clips"></div>
+
+  <script>
+    let mediaStream = null;
+    let recorder = null;
+    let chunks = [];
+
+    const btnInit  = document.getElementById('btnInit');
+    const btnStart = document.getElementById('btnStart');
+    const btnStop  = document.getElementById('btnStop');
+    const btnClear = document.getElementById('btnClear');
+    const statusEl = document.getElementById('status');
+    const clipsEl  = document.getElementById('clips');
+
+    function updateStatus(txt) { statusEl.textContent = txt; }
+
+    function supportedMime() {
+      const ogg = 'audio/ogg; codecs=opus';
+      if (MediaRecorder.isTypeSupported(ogg)) return ogg;
+      return '';
+    }
+
+    async function initMic() {
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: { channelCount: 1, sampleRate: 16000, noiseSuppression: true, echoCancellation: true }
+        });
+        btnStart.disabled = false;
+        btnInit.disabled = true;
+        updateStatus('Mic enabled. Ready.');
+      } catch (err) {
+        updateStatus('Mic permission denied/unavailable.');
+      }
+    }
+
+    function startRec() {
+      chunks = [];
+      const mimeType = supportedMime() || undefined;
+      recorder = new MediaRecorder(mediaStream, {
+        mimeType: mimeType,
+        audioBitsPerSecond: 24000
+      });
+      recorder.ondataavailable = e => { if (e.data.size > 0) chunks.push(e.data); };
+      recorder.onstop = () => {
+        const blob = new Blob(chunks, { type: recorder.mimeType || 'audio/ogg' });
+        const url  = URL.createObjectURL(blob);
+        const filename = `recording_${Date.now()}.ogg`;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'clip';
+
+        const audio = document.createElement('audio');
+        audio.controls = true;
+        audio.src = url;
+
+        const saveBtn = document.createElement('button');
+        saveBtn.textContent = 'Save Clip';
+        saveBtn.onclick = () => {
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          a.click();
+        };
+
+        wrapper.appendChild(audio);
+        wrapper.appendChild(document.createElement('br'));
+        wrapper.appendChild(saveBtn);
+
+        clipsEl.appendChild(wrapper);
+        btnClear.disabled = false;
+        updateStatus('Idle');
+      };
+      recorder.start();
+      btnStart.disabled = true;
+      btnStop.disabled = false;
+      updateStatus('Recording…');
+    }
+
+    function stopRec() {
+      recorder.stop();
+      btnStop.disabled = true;
+      btnStart.disabled = false;
+    }
+
+    function clearClips() {
+      clipsEl.innerHTML = '';
+      btnClear.disabled = true;
+      updateStatus('Clips cleared.');
+    }
+
+    btnInit.onclick = initMic;
+    btnStart.onclick = startRec;
+    btnStop.onclick = stopRec;
+    btnClear.onclick = clearClips;
+  </script>
+</body>
+</html>

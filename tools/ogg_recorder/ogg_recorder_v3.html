@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>OGG Voice Recorder (Clip List + Naming)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root { --b:#e5e7eb; --bb:#d1d5db; --mut:#6b7280; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 900px; margin: 24px auto; padding: 0 16px; }
+    h1 { font-size: 1.3rem; margin: 0 0 .5rem; }
+    .note { color: var(--mut); margin-bottom: 12px; }
+    .row { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; margin: 10px 0; }
+    button { padding: .55rem .9rem; border: 1px solid var(--bb); border-radius: .5rem; background: #f8f9fb; cursor: pointer; }
+    button[disabled]{ opacity:.5; cursor:not-allowed; }
+    input[type="text"] { padding: .5rem .6rem; border:1px solid var(--bb); border-radius:.5rem; min-width: 220px; }
+    #status { font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border-bottom: 1px solid var(--b); padding: 8px; vertical-align: middle; }
+    th { text-align: left; font-weight: 600; font-size: .95rem; }
+    audio { width: 220px; }
+    .muted { color: var(--mut); font-size: .92rem; }
+    .pill { display:inline-block; border:1px solid var(--b); border-radius:999px; padding:.15rem .5rem; margin-right:.35rem; }
+  </style>
+</head>
+<body>
+  <h1>OGG Voice Recorder</h1>
+  <div class="note">
+    Targets low-resource speech: <span class="pill">mono</span><span class="pill">~16 kHz</span><span class="pill">~24 kbps (Opus)</span>.
+    For native <code>.ogg</code> recording, use <strong>Firefox</strong>.
+  </div>
+
+  <div class="row">
+    <button id="btnInit">Enable Mic</button>
+    <button id="btnStart" disabled>Start</button>
+    <button id="btnStop" disabled>Stop</button>
+    <span id="status">Idle</span>
+  </div>
+
+  <div class="row">
+    <label class="muted">Next clip name:</label>
+    <input id="clipName" type="text" placeholder="e.g., intro_line_01" />
+    <button id="btnSetNow">Use timestamp</button>
+  </div>
+
+  <div class="row">
+    <button id="btnSaveAll" disabled>Save All</button>
+    <button id="btnClearAll" disabled>Clear All</button>
+  </div>
+
+  <table id="clipsTable" aria-label="Recorded clips">
+    <thead>
+      <tr>
+        <th style="width: 30%">Name</th>
+        <th>Preview</th>
+        <th>Duration</th>
+        <th>Size</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="clipsBody">
+      <tr class="muted"><td colspan="5">No clips yet.</td></tr>
+    </tbody>
+  </table>
+
+  <p class="muted">
+    Tip: In Firefox, enable <em>Settings → General → Downloads → “Always ask you where to save files.”</em> to pick your folder each time.
+  </p>
+
+  <script>
+    // --- State ---
+    let mediaStream = null;
+    let recorder = null;
+    let chunks = [];
+    let recStartMs = 0;
+    let recTimer = null;
+    let clipCounter = 1;
+
+    const clips = []; // {id, name, blob, url, durationMs, size}
+
+    // --- UI refs ---
+    const btnInit = document.getElementById('btnInit');
+    const btnStart = document.getElementById('btnStart');
+    const btnStop = document.getElementById('btnStop');
+    const btnSetNow = document.getElementById('btnSetNow');
+    const btnSaveAll = document.getElementById('btnSaveAll');
+    const btnClearAll = document.getElementById('btnClearAll');
+    const statusEl = document.getElementById('status');
+    const clipNameEl = document.getElementById('clipName');
+    const clipsBody = document.getElementById('clipsBody');
+
+    // --- Helpers ---
+    const fmtBytes = n => (n < 1024) ? n + ' B' :
+      (n < 1024*1024) ? (n/1024).toFixed(1) + ' KB' :
+      (n/1024/1024).toFixed(2) + ' MB';
+
+    function fmtDur(ms) {
+      const s = Math.round(ms/1000);
+      const m = Math.floor(s/60);
+      const r = s % 60;
+      return (m>0 ? m + 'm ' : '') + r + 's';
+    }
+
+    function updateStatus(txt){ statusEl.textContent = txt; }
+
+    function ensureClipsTable() {
+      if (clipsBody.children.length === 1 && clipsBody.children[0].classList.contains('muted')) {
+        clipsBody.innerHTML = '';
+      }
+    }
+
+    function refreshGlobalButtons() {
+      const hasClips = clips.length > 0;
+      btnSaveAll.disabled = !hasClips;
+      btnClearAll.disabled = !hasClips;
+    }
+
+    function supportedOgg() {
+      const t = 'audio/ogg; codecs=opus';
+      if (window.MediaRecorder && MediaRecorder.isTypeSupported(t)) return t;
+      // Fallback (Firefox recommended for OGG)
+      return '';
+    }
+
+    // --- Mic init ---
+    async function initMic() {
+      try {
+        mediaStream = await navigator.mediaDevices.getUserMedia({
+          audio: {
+            channelCount: 1,
+            // Browsers capture at 48 kHz internally for Opus; we still hint:
+            sampleRate: 16000,
+            noiseSuppression: true,
+            echoCancellation: true,
+            autoGainControl: true
+          }
+        });
+        btnStart.disabled = false;
+        btnInit.disabled = true;
+        updateStatus('Mic enabled. Ready.');
+      } catch (err) {
+        console.error(err);
+        updateStatus('Microphone permission denied or unavailable.');
+      }
+    }
+
+    // --- Recording ---
+    function startRec() {
+      if (!mediaStream) return;
+      chunks = [];
+      const mt = supportedOgg() || undefined;
+
+      try {
+        recorder = new MediaRecorder(mediaStream, {
+          mimeType: mt,           // Prefer 'audio/ogg; codecs=opus'
+          audioBitsPerSecond: 24000
+        });
+      } catch (e) {
+        console.error(e);
+        updateStatus('Recorder unsupported. Try Firefox for OGG.');
+        return;
+      }
+
+      recorder.ondataavailable = e => {
+        if (e.data && e.data.size > 0) chunks.push(e.data);
+      };
+
+      recorder.onstart = () => {
+        recStartMs = Date.now();
+        recTimer = setInterval(() => {
+          const secs = Math.floor((Date.now() - recStartMs)/1000);
+          updateStatus('Recording… ' + secs + 's');
+        }, 500);
+      };
+
+      recorder.onstop = () => {
+        if (recTimer) { clearInterval(recTimer); recTimer = null; }
+        const durationMs = Date.now() - recStartMs;
+        const blob = new Blob(chunks, { type: recorder.mimeType || 'audio/ogg' });
+        const url = URL.createObjectURL(blob);
+
+        const defaultBase = (clipNameEl.value || '').trim() || `clip_${String(clipCounter).padStart(2,'0')}`;
+        clipCounter++;
+        const safeBase = defaultBase.replace(/[^\w\-]+/g, '_');
+        const name = safeBase.endsWith('.ogg') ? safeBase : `${safeBase}.ogg`;
+
+        const id = crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + '_' + Math.random().toString(36).slice(2);
+        const item = { id, name, blob, url, durationMs, size: blob.size };
+        clips.push(item);
+        addClipRow(item);
+
+        updateStatus('Idle');
+        refreshGlobalButtons();
+      };
+
+      recorder.start();
+      btnStart.disabled = true;
+      btnStop.disabled = false;
+      updateStatus('Recording…');
+    }
+
+    function stopRec() {
+      if (recorder && recorder.state !== 'inactive') {
+        recorder.stop();
+        btnStop.disabled = true;
+        btnStart.disabled = false;
+      }
+    }
+
+    // --- UI building for clips ---
+    function addClipRow(item) {
+      ensureClipsTable();
+
+      const tr = document.createElement('tr');
+      tr.dataset.id = item.id;
+
+      // Name (editable)
+      const tdName = document.createElement('td');
+      const nameInput = document.createElement('input');
+      nameInput.type = 'text';
+      nameInput.value = item.name;
+      nameInput.addEventListener('change', () => {
+        let v = nameInput.value.trim();
+        if (!v.toLowerCase().endsWith('.ogg')) v += '.ogg';
+        item.name = v.replace(/[^\w\-.]+/g, '_');
+        nameInput.value = item.name;
+      });
+      tdName.appendChild(nameInput);
+
+      // Preview
+      const tdPrev = document.createElement('td');
+      const audio = document.createElement('audio');
+      audio.controls = true;
+      audio.src = item.url;
+      tdPrev.appendChild(audio);
+
+      // Duration
+      const tdDur = document.createElement('td');
+      tdDur.textContent = fmtDur(item.durationMs);
+
+      // Size
+      const tdSize = document.createElement('td');
+      tdSize.textContent = fmtBytes(item.size);
+
+      // Actions
+      const tdAct = document.createElement('td');
+      const btnSave = document.createElement('button');
+      btnSave.textContent = 'Save As…';
+      btnSave.addEventListener('click', () => saveOne(item));
+
+      const btnDel = document.createElement('button');
+      btnDel.textContent = 'Delete';
+      btnDel.style.marginLeft = '.5rem';
+      btnDel.addEventListener('click', () => deleteOne(item.id));
+
+      tdAct.appendChild(btnSave);
+      tdAct.appendChild(btnDel);
+
+      tr.appendChild(tdName);
+      tr.appendChild(tdPrev);
+      tr.appendChild(tdDur);
+      tr.appendChild(tdSize);
+      tr.appendChild(tdAct);
+
+      clipsBody.prepend(tr);
+    }
+
+    function deleteOne(id) {
+      const idx = clips.findIndex(c => c.id === id);
+      if (idx >= 0) {
+        URL.revokeObjectURL(clips[idx].url);
+        clips.splice(idx, 1);
+      }
+      const row = clipsBody.querySelector(`tr[data-id="${id}"]`);
+      if (row) row.remove();
+
+      if (clips.length === 0) {
+        clipsBody.innerHTML = '<tr class="muted"><td colspan="5">No clips yet.</td></tr>';
+      }
+      refreshGlobalButtons();
+    }
+
+    function clearAll() {
+      for (const c of clips) URL.revokeObjectURL(c.url);
+      clips.length = 0;
+      clipsBody.innerHTML = '<tr class="muted"><td colspan="5">No clips yet.</td></tr>';
+      refreshGlobalButtons();
+    }
+
+    // --- Saving ---
+    function saveBlobViaAnchor(blob, filename) {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      // Setting target helps some browsers open the native dialog
+      a.target = '_self';
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        URL.revokeObjectURL(a.href);
+        a.remove();
+      }, 0);
+    }
+
+    async function saveOne(item) {
+      // Firefox path: use <a download> which opens the OS save dialog
+      saveBlobViaAnchor(item.blob, item.name);
+    }
+
+    async function saveAll() {
+      // Triggers one native dialog per clip (Firefox).
+      // (Note: true folder selection programmatically is Chromium-only using showSaveFilePicker / showDirectoryPicker)
+      for (let i = clips.length - 1; i >= 0; i--) {
+        await new Promise(r => setTimeout(r, 150)); // small gap to avoid browser throttling
+        saveBlobViaAnchor(clips[i].blob, clips[i].name);
+      }
+    }
+
+    // --- Misc ---
+    function setNameToTimestamp() {
+      const ts = new Date().toISOString().replace(/[:.]/g,'-');
+      clipNameEl.value = 'clip_' + ts;
+    }
+
+    // --- Wire up ---
+    btnInit.addEventListener('click', initMic);
+    btnStart.addEventListener('click', startRec);
+    btnStop.addEventListener('click', stopRec);
+    btnClearAll.addEventListener('click', clearAll);
+    btnSaveAll.addEventListener('click', saveAll);
+    btnSetNow.addEventListener('click', setNameToTimestamp);
+  </script>
+</body>
+</html>
