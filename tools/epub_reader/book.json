@@ -1,0 +1,17 @@
+{
+  "id": "sample-text",
+  "title": "Sample Reader Book",
+  "authors": ["Public Domain Example"],
+  "license": "Public Domain",
+  "lang": "en",
+  "updated": "2025-10-10",
+  "files": {
+  "text": "book.txt"
+  },
+  "hints": {
+    "chapterRegex": "^(chapter|section)\\s+[0-9ivxlcdm]+",
+    "frontMatterLines": 20
+  },
+  "cover": "/books/sample-text/cover.jpg",
+  "approxWordCount": 850
+}

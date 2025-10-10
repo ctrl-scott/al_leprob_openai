@@ -1,0 +1,18 @@
+SAMPLE TEXT FILE
+Public Domain Demonstration
+===========================
+
+This is a sample text designed to test the online reader. 
+It contains front matter, multiple chapters, and basic paragraphs.
+
+CHAPTER 1
+In the beginning of this sample, a reader opens the file. 
+They see words arranged as paragraphs. The goal is to test scrolling, searching, and theming.
+
+CHAPTER 2
+The story continues. This chapter is longer, with more sentences. 
+Bookmarks may be placed here, and the progress bar will advance.
+
+CHAPTER 3
+Finally, the reader reaches the end of the book. 
+They should be able to toggle dark mode, adjust font size, and see progress updates.
