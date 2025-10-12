@@ -43,6 +43,17 @@
         { "type": "p", "text": "A proper rectangle has four sides two of which should be parallel" },
         { "type": "tenframe", "value": 4, "label": "Count to four." }
       ]
+    },
+        {
+      "id": "pentagon",
+      "title": "Pentagon",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Pentagon" },
+        { "type": "svg", "src": "./assets/svg/pentagon.svg", "alt": "Outlined and filled pentagon" },
+        { "type": "p", "text": "A proper pentagon has five sides" },
+        { "type": "tenframe", "value": 5, "label": "Count to five." }
+      ]
     }
   ]
 }
