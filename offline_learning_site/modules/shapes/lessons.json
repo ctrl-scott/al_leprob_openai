@@ -22,7 +22,7 @@
         { "type": "tenframe", "value": 0, "label": "There is no count" }
       ]
     },
-         {
+{
       "id": "square",
       "title": "Square",
       "level": "Intro",
@@ -30,6 +30,17 @@
         { "type": "h3", "text": "Square" },
         { "type": "svg", "src": "./assets/svg/square.svg", "alt": "Outlined and filled square" },
         { "type": "p", "text": "A proper square has four equal sides" },
+        { "type": "tenframe", "value": 4, "label": "Count to four." }
+      ]
+    },
+    {
+      "id": "rectangle",
+      "title": "Rectangle",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Rectangle" },
+        { "type": "svg", "src": "./assets/svg/rectangle.svg", "alt": "Outlined and filled rectangle" },
+        { "type": "p", "text": "A proper rectangle has four sides two of which should be parallel" },
         { "type": "tenframe", "value": 4, "label": "Count to four." }
       ]
     }

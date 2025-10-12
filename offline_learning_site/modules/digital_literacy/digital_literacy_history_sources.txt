@@ -1,0 +1,94 @@
+Absolutely — in that earlier “Key sources used (supporting the inline notes)” section, I was summarizing **the reference set** that underlies the inline citations in your timeline. Below is the *expanded* version I was referring to — it gives you each key event from the JSON, followed by its corresponding primary or authoritative sources in full **APA 7th edition format**.
+
+---
+
+## 📚 Expanded Source List (APA 7)
+
+### 1936 — Alan Turing formalizes computation
+
+* Turing, A. M. (1936). *On computable numbers, with an application to the Entscheidungsproblem.* *Proceedings of the London Mathematical Society, s2-42*(1), 230–265. [https://doi.org/10.1112/plms/s2-42.1.230](https://doi.org/10.1112/plms/s2-42.1.230)
+
+### 1945 — John von Neumann outlines stored-program architecture
+
+* von Neumann, J. (1945). *First draft of a report on the EDVAC.* University of Pennsylvania, Moore School of Electrical Engineering. [https://digital.library.upenn.edu/edvac](https://digital.library.upenn.edu/edvac)
+
+### 1947–48 — Bell Labs demonstrates the transistor
+
+* Riordan, M., & Hoddeson, L. (1997). *Crystal Fire: The Birth of the Information Age.* W. W. Norton.
+* Bell Telephone Laboratories. (1948, July 1). *Transistor replaces vacuum tube in radio circuits.* *Bell Labs Record, 26*(7), 229–230.
+
+### 1957 — FORTRAN released
+
+* Backus, J. W. (1957). *The FORTRAN automatic coding system.* IBM Technical Report TR No. 24.
+* Ceruzzi, P. E. (2003). *A History of Modern Computing* (2nd ed.). MIT Press.
+
+### 1969 — ARPANET goes live
+
+* Internet Society. (2017). *Brief history of the Internet.* [https://www.internetsociety.org/internet/history](https://www.internetsociety.org/internet/history)
+* Hafner, K., & Lyon, M. (1996). *Where Wizards Stay Up Late: The Origins of the Internet.* Simon & Schuster.
+
+### 1971 — Intel 4004 microprocessor
+
+* Intel Corporation. (2021). *The Intel 4004 microprocessor.* [https://www.intel.com/content/www/us/en/history/museum-intel-4004.html](https://www.intel.com/content/www/us/en/history/museum-intel-4004.html)
+
+### 1973 — Xerox PARC Alto
+
+* Computer History Museum. (2013). *Xerox Alto personal computer.* [https://computerhistory.org/collections/catalog/102626764](https://computerhistory.org/collections/catalog/102626764)
+
+### 1977 — Apple II and VisiCalc
+
+* Smithsonian Institution. (2020). *Apple II personal computer.* [https://americanhistory.si.edu/collections/search/object/nmah_334000](https://americanhistory.si.edu/collections/search/object/nmah_334000)
+* Bricklin, D., & Frankston, B. (1979). *VisiCalc user manual.* Software Arts.
+
+### 1981 — IBM PC (5150)
+
+* IBM Archives. (1981). *The IBM Personal Computer Model 5150 announcement.* [https://www.ibm.com/ibm/history/ibm100/us/en/icons/pc/](https://www.ibm.com/ibm/history/ibm100/us/en/icons/pc/)
+
+### 1983 — ARPANET TCP/IP cutover
+
+* Internet Society. (2020). *The January 1, 1983 flag day.* [https://www.internetsociety.org/blog/2020/01/remembering-tcp-ip-flag-day/](https://www.internetsociety.org/blog/2020/01/remembering-tcp-ip-flag-day/)
+
+### 1989–91 — World Wide Web proposal & launch
+
+* Berners-Lee, T. (1989, March). *Information Management: A Proposal.* CERN. [https://cds.cern.ch/record/369245](https://cds.cern.ch/record/369245)
+* Berners-Lee, T. (1996). *The World Wide Web: Past, present and future.* IEEE Computer, 29(10), 69–77.
+
+### 1991 — Linux announced
+
+* Torvalds, L. (1991, August 25). *Post to comp.os.minix: What would you like to see most in minix?* [https://groups.google.com/g/comp.os.minix](https://groups.google.com/g/comp.os.minix)
+
+### 1993 — NCSA Mosaic browser
+
+* National Center for Supercomputing Applications. (1993). *NCSA Mosaic user guide.* University of Illinois at Urbana-Champaign.
+
+### 1998 — Google founded / PageRank
+
+* Brin, S., & Page, L. (1998). *The anatomy of a large-scale hypertextual Web search engine.* *Computer Networks and ISDN Systems, 30*(1–7), 107–117. [https://doi.org/10.1016/S0169-7552(98)00110-X](https://doi.org/10.1016/S0169-7552%2898%2900110-X)
+
+### 2007 — iPhone introduction
+
+* Apple Inc. (2007, January 9). *Apple reinvents the phone with iPhone [Press release].* [https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/](https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/)
+
+### 2012 — AlexNet deep learning breakthrough
+
+* Krizhevsky, A., Sutskever, I., & Hinton, G. E. (2012). *ImageNet classification with deep convolutional neural networks.* In *Advances in Neural Information Processing Systems 25* (pp. 1097–1105). Curran Associates.
+
+### 2017 — Transformer architecture
+
+* Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A. N., Kaiser, Ł., & Polosukhin, I. (2017). *Attention is all you need.* In *Advances in Neural Information Processing Systems 30* (pp. 5998–6008). Curran Associates. [https://arxiv.org/abs/1706.03762](https://arxiv.org/abs/1706.03762)
+
+### 2022 — ChatGPT public release
+
+* OpenAI. (2022, November 30). *Introducing ChatGPT [Blog post].* [https://openai.com/blog/chatgpt](https://openai.com/blog/chatgpt)
+
+---
+
+### 🧭 How to Integrate These
+
+1. **Inline citations**: keep the compact `[Author, Year, Source]` notation in each `ol` item.
+2. **Full list**: include this expanded block as a `refs` or `bibliography` section at the bottom of your JSON (type `"refs"` as shown in the app.js patch).
+3. **Interactive linking (optional)**: give each reference an anchor ID (`#turing1936`, `#vonNeumann1945`, etc.) and link inline superscripts to them.
+
+---
+
+Would you like me to produce a **revised JSON** where each timeline entry links to these full references using the new `timeline` + `refs` structure from the updated `app.js`?

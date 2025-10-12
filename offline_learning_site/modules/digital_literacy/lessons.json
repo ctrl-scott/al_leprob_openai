@@ -27,6 +27,113 @@
         "answer": 1
       }
     },
+     {
+      "id": "computing-history-timeline",
+      "title": "Computing History: A Concise Timeline",
+      "level": "Intermediate",
+      "content": [
+        { "type": "p", "text": "A quick, source-cited journey through key moments in computing. Citations are inline at the end of each item." },
+        {
+          "type": "ol",
+          "items": [
+            "1936 — Alan Turing formalizes computation with the Turing machine concept in “On Computable Numbers.” [Turing, 1936, Proc. Lond. Math. Soc.]",
+            "1945 — John von Neumann’s “First Draft of a Report on the EDVAC” outlines the stored-program architecture. [von Neumann, 1945]",
+            "1947/48 — Bell Labs demonstrates and publicly announces the first working transistor (point-contact), launching solid-state electronics. [Bell Labs/CHM timeline; IEEE Spectrum]",
+            "1957 — FORTRAN popularizes high-level programming for scientific computing (IBM). [General histories]",
+            "1969 — ARPANET goes live; the first host-to-host message is sent between UCLA and SRI. [Internet Society; ICANN blog; HISTORY.com]",
+            "1971 — Intel introduces the 4004, an early general-purpose microprocessor. [Intel; IEEE Spectrum; Wikipedia overview]",
+            "1973 — Xerox PARC builds the Alto, pioneering GUI, mouse, networking, and WYSIWYG concepts. [Computer History Museum]",
+            "1977 — Apple II brings color graphics and, with VisiCalc (1979), drives personal computing adoption. [Computer History Museum; Smithsonian]",
+            "1981 — IBM unveils the PC (Model 5150), standardizing the open, modular PC ecosystem. [IBM Archives; Smithsonian]",
+            "1983 — ARPANET cuts over to TCP/IP (“flag day”), cementing the Internet’s core protocol suite. [Internet Society; ARPANET history]",
+            "1989–1991 — Tim Berners-Lee proposes and launches the World Wide Web at CERN; public access follows. [CERN proposal & history]",
+            "1991 — Linus Torvalds announces Linux, catalyzing open-source OS development. [Torvalds announcement retrospectives]",
+            "1993 — NCSA Mosaic popularizes the graphical web browser with inline images. [NCSA; UIUC; Wikipedia/NCSA Mosaic]",
+            "1998 — Google is founded, scaling web search with PageRank. [Google company history; Stanford Eng.]",
+            "2007 — Apple introduces the iPhone, mainstreaming multi-touch smartphones and mobile apps. [Apple press release; AP recap]",
+            "2012 — “AlexNet” demonstrates deep CNNs’ breakthrough on ImageNet, igniting modern deep learning. [NeurIPS 2012 paper]",
+            "2017 — The Transformer architecture (“Attention Is All You Need”) reshapes NLP and beyond. [NeurIPS 2017; arXiv]",
+            "2022 — OpenAI releases ChatGPT, accelerating public adoption of large language models. [OpenAI blog, Nov. 30, 2022]"
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which pairing is correctly matched (event → source domain)?",
+        "choices": [
+          "Turing machine (1936) → CERN Web project",
+          "TCP/IP cutover (1983) → Internet Society histories",
+          "Xerox Alto (1973) → Intel press room",
+          "AlexNet (2012) → Apple newsroom"
+        ],
+        "answer": 1
+      }
+    },
+      {
+      "id": "platforms-history-bbs-aol",
+      "title": "Consumer Online Platforms: AOL *  BBS * CompuServe * Prodigy",
+      "level": "Intermediate",
+      "content": [
+        {
+          "type": "p",
+          "text": "A concise, source-cited tour from dial-up BBS culture to mass-market online services."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "1978 — CBBS goes online in Chicago, often cited as the first public dial-up BBS (Ward Christensen & Randy Suess). [BBS history overviews]",
+            "Mid-1980s — Wildcat! BBS (Mustang Software) popularizes MS-DOS BBS hosting; commonly dated to 1986 for initial release, with a 1987 shareware launch noted in Mustang’s own history. [Wildcat! page; Mustang history]",
+            "1979–1980 — CompuServe opens a consumer dial-up service (initially as MicroNET via Radio Shack) and becomes a leading commercial online service through the 1980s–early 1990s. [CompuServe histories]",
+            "1984 → 1988/1990 — Prodigy is founded (as Trintex: IBM, Sears, CBS), rolls out regionally in 1988, then nationwide by 1990; early GUI, flat-rate pricing, and heavy consumer marketing. [Prodigy histories]",
+            "1985 → 1991–1999 — Quantum Computer Services (later America Online) launches consumer clients (DOS 1991, Windows 1992) and grows rapidly through the 1990s with bundled software and flat-rate plans. [AOL histories & 1990s data]",
+            "2025 — The dial-up era’s sunset: AOL announces end of dial-up service (Sept 30, 2025), closing a chapter that introduced millions to the Internet. [Recent news]"
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which statement best matches the historical record?",
+        "choices": [
+          "Prodigy launched nationwide in 1984 with built-in web browsing.",
+          "CompuServe opened a consumer service around 1979–1980 after starting as a corporate timesharing firm.",
+          "Wildcat! BBS was a Prodigy-owned GUI for Macintosh only.",
+          "AOL’s first general-availability client shipped in the 1970s."
+        ],
+        "answer": 1
+      }
+    },
+     {
+      "id": "mail-history",
+      "title": "Mail and Early Internet Communication",
+      "level": "Intermediate",
+      "content": [
+        {
+          "type": "p",
+          "text": "Before the modern Web, communication relied on protocols and systems that carried messages across academic and commercial networks. This timeline highlights e-mail, Usenet, LISTSERV, and Gopher, which laid the foundation for today’s networked information systems."
+        },
+        {
+          "type": "ol",
+          "items": [
+            "1971 — Ray Tomlinson sends the first networked e-mail using ARPANET and introduces the '@' symbol for addressing. [Internet Society, 2017; Wired, 2012]",
+            "1979–1980 — UUCP (Unix-to-Unix Copy) allows file transfer and mail exchange over dial-up links. Usenet is created for distributed discussions among UNIX systems. [Hafner & Lyon, 1996; UUCP overview, 2024]",
+            "1982 — SMTP (Simple Mail Transfer Protocol) becomes the Internet standard for transmitting messages between mail servers (RFC 821). [Postel, 1982]",
+            "1986 — LISTSERV automates mailing list subscriptions, replacing manual management and enabling large-scale group communication. [L-Soft, 2020]",
+            "1986 — NNTP (Network News Transfer Protocol) extends Usenet to TCP/IP, allowing faster global distribution of newsgroups. [RFC 977; TLDP HOWTO]",
+            "1991 — Gopher launches at the University of Minnesota as a menu-driven information service before the rise of the Web. [University of Minnesota Archives, 2020]",
+            "1996 — MIME (Multipurpose Internet Mail Extensions) extends e-mail for attachments and different text encodings, shaping modern e-mail formats. [Borenstein & Freed, 1996]",
+            "1996 — POP3 (Post Office Protocol v3) standardizes downloading mail to local clients, while IMAP enables multi-device synchronization. [Crispin, 1996; RFC 1939]"
+          ]
+        }
+      ],
+      "quiz": {
+        "prompt": "Which technology introduced the '@' sign as a way to route network messages?",
+        "choices": [
+          "Usenet",
+          "LISTSERV",
+          "ARPANET e-mail",
+          "Gopher"
+        ],
+        "answer": 2
+      }
+    },
     {
       "id": "staying-safe",
       "title": "Staying Safe With Technology",
