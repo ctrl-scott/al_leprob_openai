@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="850"
+   height="300"
+   viewBox="0 0 224.89584 79.375003"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="rhombus.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title841">Parallelograms</title>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="424.97118"
+     inkscape:cy="188.79751"
+     inkscape:window-width="928"
+     inkscape:window-height="768"
+     inkscape:window-x="0"
+     inkscape:window-y="41"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer2"
+     inkscape:snap-grids="false"
+     inkscape:snap-global="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:showpageshadow="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1035"
+       spacingx="13.229167"
+       spacingy="13.229167"
+       dotted="false"
+       originx="0"
+       originy="0"
+       units="px" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <symbol
+       id="symbol860">
+      <path
+         id="15"
+         style="fill:#000000;stroke:none;stroke-width:1;stroke-linecap:square;stroke-linejoin:round;stroke-opacity:1"
+         inkscape:label="#15"
+         d="M 13.229167,66.145835 26.458334,62.60135 H 52.916668 L 39.687501,66.145835 Z">
+        <title
+           id="title5374">15 Degrees</title>
+      </path>
+      <title
+         id="title862">15 Degrees</title>
+    </symbol>
+    <symbol
+       id="symbol876">
+      <path
+         id="30"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         inkscape:label="#30"
+         d="M 250,221.13281 200,250 H 300 L 350,221.13281 Z"
+         transform="scale(0.26458334)">
+        <title
+           id="title5376">30 Degrees</title>
+      </path>
+      <title
+         id="title878">30 Degrees</title>
+    </symbol>
+    <symbol
+       id="symbol900">
+      <path
+         id="45"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         inkscape:label="#45"
+         d="M 400,200 350,250 H 450 L 500,200 Z"
+         transform="scale(0.26458334)">
+        <title
+           id="title5378">45 Degrees</title>
+      </path>
+      <title
+         id="title902">45 Degrees</title>
+    </symbol>
+    <symbol
+       id="symbol932">
+      <path
+         id="60"
+         style="fill:#000000;stroke:none;stroke-width:3.77953;stroke-linecap:square;stroke-linejoin:round"
+         inkscape:label="#60"
+         d="M 549.99219,163.40039 500,250 H 599.98438 600 L 599.99219,249.98633 649.99219,163.40039 Z"
+         transform="scale(0.26458334)">
+        <title
+           id="title5380">60 Degrees</title>
+      </path>
+      <title
+         id="title934">60 Degrees</title>
+    </symbol>
+    <symbol
+       id="symbol972">
+      <path
+         id="75"
+         style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+         inkscape:label="#75"
+         d="M 700,63.396484 650,250 H 750 L 800,63.396484 Z"
+         transform="scale(0.26458334)">
+        <title
+           id="title5382">75 Degrees</title>
+      </path>
+      <title
+         id="title974">75 Degrees</title>
+    </symbol>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="layer1">
+    <use
+       xlink:href="#symbol876"
+       id="use882-9"
+       transform="matrix(2.5744911,0,0,3.6454786,-74.881865,-183.88732)"
+       style="fill:#000080;fill-opacity:1"
+       inkscape:label="use882-9" />
+    <path
+       id="path2"
+       style="fill:#000080;fill-opacity:1;stroke-width:1.41421"
+       d="M 488.54102 111.73047 L 361.33203 111.73828 L 300.51953 161.35156 C 267.07338 188.63843 238.45394 212.18194 236.91992 213.66992 C 234.17241 216.33494 236.02494 216.375 361.06055 216.375 L 487.99219 216.375 L 550.52735 165.29688 C 584.92165 137.20423 613.66538 113.65729 614.4043 112.9707 C 615.18172 112.24833 562.15082 111.72547 488.54102 111.73047 z "
+       transform="scale(0.26458334)" />
+  </g>
+  <metadata
+     id="metadata839">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Parallelograms</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Armando Arzate Román armandobizarro@gmail.com</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/publicdomain/zero/1.0/" />
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/publicdomain/zero/1.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

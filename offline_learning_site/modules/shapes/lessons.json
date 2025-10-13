@@ -44,6 +44,17 @@
         { "type": "tenframe", "value": 4, "label": "Count to four." }
       ]
     },
+     {
+      "id": "rhombus",
+      "title": "Rhombus",
+      "level": "Intro",
+      "content": [
+        { "type": "h3", "text": "Rhombus" },
+        { "type": "svg", "src": "./assets/svg/rhombus.svg", "alt": "Outlined and filled rhombus" },
+        { "type": "p", "text": "A proper rhombus has four sides all of which should be equal in length" },
+        { "type": "tenframe", "value": 4, "label": "Count to four." }
+      ]
+    },
         {
       "id": "pentagon",
       "title": "Pentagon",
